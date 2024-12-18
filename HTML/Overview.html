@@ -1,0 +1,86 @@
+<!DOCTYPE html><!-- This is used for document declaration.-->
+ <html lang="en"><!-- The html tag is the root element and it has an lang attribute which define the language of the page-->
+    <head><!-- It acts like a container which has all the content not viewed by the users-->
+        <title>
+            Overview
+        </title><!-- title of our webpage-->
+        <meta charset="utf-8"><!--It define the character set of the document "UTF-8" contains all written characters-->
+        <meta name="viewport" content="width=device-width"><!-- Used to reduce the size of the viewport for mobile-->
+        <meta name="author" content="lokesh"><!--used to define author-->
+        <meta name="description" content="Overview of html"><!-- used to describe the page helps in SEO-->
+        <link rel="icon" type="image/x-icon" href="./icon.png">
+    </head>
+        <body><!-- contains the content of the web application-->
+         <h1 id="abbr">This is an Overview of <abbr title="Hypertext Markup Language">html</abbr></h1><!--Main heading-->
+         <h2>What is HTML</h2><!--Sub heading-->
+         <p>
+            HTML (HyperText Markup Language) is the code that is used to structure a web page and its content.
+         </p>
+         <h2 id="list">Types of list</h2>
+         <ul>
+            <li>Unordered list</li>
+            <li>Ordered list</li>
+            <li>Description list</li>
+         </ul>
+         <p>
+            Ordered and unordered list are common and description list is uncommon.
+         </p>
+         <h2>
+            Hyperlinks
+         </h2>
+         <p>Image link</p>
+         <a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics " title="Overview of html">
+            <img src="./icon.png" alt="html image"/>
+        </a>
+        <p>Text link</p>
+         <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Advanced_text_formatting" title="Advanced_text_formatting">To know more about lists click this link</a>
+        </body>
+        <a href="#list">
+            <h2>Document fragment</h2>
+        </a>
+        <p>The above hyperlink is a link to a fragment of the same html page</p>
+        <h2>Mailto attribute in hyperlink</h2>
+        <a href="mailto:thismail@gmail.com">
+            send mail to this mail id
+        </a>
+        <h2>Advanced text formating</h2>
+        <p>Description list</p>
+        <dl>
+            <dt>
+                Description list
+            </dt>
+            <dd>
+                Description term is like heading and followed by the description definition.
+            </dd>
+            <dd>
+                Description definition define the dt . one dt can have multiple dd.
+            </dd>
+        </dl>
+        <h2>Blockquote</h2>
+        <p>Here is a blockquote:</p>
+        <blockquote cite="https://www.example.com">
+            "The only way to do great work is to love what you do." – Steve Jobs
+        </blockquote>
+        <p>This is a quote by steve jobs</p>
+        <p> we can also include inline quote use q tag <q>this is an example</q></p>
+        <a href="#abbr"><h2>Abbrevation</h2></a>
+        <p>In this above link the abbrivation tag is used</p>
+        <h2>Address tag</h2>
+        <address>
+            Aspire Systems, SIPCOT IT Park, 1/D-1, First Main Road, Siruseri, Tamil Nadu 603103
+        </address>
+        <p>This is my workplace. I joined aspire 28<sup>th</sup>of november</p>
+        <h2>Code</h2>
+        <p>We can also include code in our html page using code tag</p>
+        <pre>
+            <code>
+                #include<stdio.h>
+                    int main(){
+                        print("hello world");
+                    }
+            </code>
+        </pre>
+        <h2>Date and time</h2>
+        <p>This tag is used to define the machine readable formate of date and time</p>
+        <time datetime="18-12-24">18 december 2024</time>
+ </html>
