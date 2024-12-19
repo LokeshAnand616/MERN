@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Elements in HTML
+        </title>
+        <base href="https://developer.mozilla.org/en-US/docs/Learn/">
+    </head>
+    <body>
+         <h1>Elements</h1>
+         <h2>Base element</h2>
+         <p>This base tag in head used to specify the base url for all urls used in the web page</p>
+         <a href="HTML">click to access HTML</a>
+         <a href="CSS"> click to access css</a>
+         <a href="javascript">click to access javascript</a>
+         <hgroup>
+            <h2>This is to show how hgroup works</h2>
+            <h3>This is subheading </h3>
+            <p>Here we can group all h tags in one section</p>
+         </hgroup>
+         <h2>Search tag</h2>
+         <search>
+            <form action="/search">
+                <input type="search" placeholder="Search here">
+                <button type="submit">Search</button>
+            </form>
+         </search>
+         <h2>Menu tag</h2>
+         <p>It is logically same as ul tag</p>
+         <menu>
+            <li><button >Copy</button></li>
+            <li><button >Cut</button></li>
+            <li><button >Paste</button></li>
+          </menu>
+          <h2>bdi and bdo</h2>
+          <p>bdi stands for bidirectional isolate. Here the words that distrup other words will used inside this tag.</p>
+          <p>This is an arabic<bdi>الرجل القوي إيان</bdi>1 </p>
+          <p>bdo stands for bi directional override. Here we implicitly change the direction of the words</p>
+          <p><bdo dir="rtl">here</bdo></p>
+          <h2>Mark tag</h2>
+          <p>Mark tag is used to <mark>highlight</mark> some text </p>
+          <h2>span tag</h2>
+          <p>Span tag is a gerniric inline container <span>$350</span></p>
+          <form>
+            <fieldset>
+                <legend>Form</legend>
+                <lable>Enter your name</lable>
+                <input type="text"><br>
+                <lable>Select you gender</lable>
+                <select id="gender">
+                    <option value="male">male</option>
+                    <option value="male">female</option>
+                </select><br>
+                <label>Select your favourite movie</label>
+                <select id="movie">
+                    <optgroup label="super hero">
+                        <option>superman</option>
+                        <option>spiderman</option>
+                    </optgroup>
+                    <optgroup label="horro moive">
+                        <option>conjuring</option>
+                        <option>the ring</option>
+                    </optgroup>
+                </select><br>
+                <lable>progress</lable>
+                <progress max="100" value="50"></progress>
+            </fieldset>
+          </form>
+    </body>
+</html>

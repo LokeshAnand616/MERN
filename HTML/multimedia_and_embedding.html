@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Multimedia and Embedding</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+        <h1>Multimedia and Embedding</h1>
+        <h2>Image tag</h2>
+        <p>This is an sample image which has loading attribute, src, alt, width and height. The loading attribute will only enabled by javascript.</p>
+        <!--Image tag used to display the image in html page-->
+        <img loading="lazy" src="./Image/sample.jpg" alt="image" height="300px" width="400px"/>
+        <br/>
+        <h2>This is image with map functions</h2>
+        <figure>
+            <!--Figure tag is used to wrap the image and figcaption is used to caption the give image-->
+        <img src="./Image/usemap.jpg" usemap="#image-map">
+        <map name="image-map">
+            <area target="_self" alt="HTML" title="HTML" href="https://developer.mozilla.org/en-US/docs/Web/HTML" coords="115,152,57" shape="circle">
+            <area target="_parent" alt="CSS" title="CSS" href="https://developer.mozilla.org/en-US/docs/Web/CSS" coords="229,153,47" shape="circle">
+            <area target="_blank" alt="Java script" title="Java script" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" coords="340,155,52" shape="circle">
+        </map>
+        <figcaption>This image uses map function click and see the result.</figcaption>
+        </figure>
+        <h2>Video tag</h2>
+        <!--Video tag is used to embedd video into a html file-->
+        <video src="./Video/samplevideo.mp4" controls width="500px" disablepictureinpicture poster="sample.jpg"></video>
+        <h2>Audio tag</h2>
+        <audio src="./Audio/sampleaudio.mp3" controls muted ></audio>
+        <h2>Iframe</h2>
+        <iframe src="./documentstructure.html" allowfullscreen></iframe>
+    </body>
+</html>

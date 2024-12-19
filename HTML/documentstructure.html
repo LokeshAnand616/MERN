@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>
+            Document structure of a webpage
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+        <header>
+            <h1>
+                Document structure
+            </h1>
+        </header>
+        <hr/>
+        <nav>
+            <ol style="list-style-type: none;">
+                <li style="display: inline-block;"><a href="#">link1</a></li>
+                <li style="display: inline-block;"><a href="#">link2</a></li>
+                <li style="display: inline-block;"><a href="#">link3</a></li>
+                <li style="display: inline-block;"><a href="#">link4</a></li>
+            </ol>
+        </nav>
+        <hr/>
+        <main>
+            <h2>Main content</h2>
+            <aside style="float:right; width:100px;">
+                <h2>Side bar</h2>
+                <p>This is side bar which contains the content which is indirectly related to the main content.</p>
+            </aside>
+            <p>
+                This is tag contains main content of the webpage. In this tag we should not include the repeated texts like links which is available in header or navbar.
+            </p>
+            <article>
+                <h2>Article</h2>
+                <p>The article tag are used to display independent content in the webpage</p>
+                <section>
+                    <h2>Section tag</h2>
+                    <p>This is a section </p>
+                </section>
+                <section>
+                    <h2>Article vs Section</h2>
+                    <p>unlike article tag sections tags are used to display group of content related to a thematic section. We can also use sections in footer for adress phone number etc.</p>
+
+                </section>
+                <div>
+                    <p>div tag is a geniric container </p>
+                </div>
+            </article>
+        </main>
+        <hr/>
+        <footer>
+            <h2>Footer</h2>
+            <p>This footer contains the contents like copyrights, address or other related contents to the main content</p>
+        </footer>
+    </body>
+</html>
