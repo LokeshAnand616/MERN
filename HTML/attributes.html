@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Attributes
+        </title>
+        <style>
+            table {
+            border-collapse: collapse;
+            border: 2px solid;
+            }
+
+            td, th {
+            border: 1px solid;
+            border-collapse: collapse;
+            padding: 10px 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Attribute list</h1>
+        <h2>form attributes</h2>
+        <form action="#" method="post">
+            <fieldset>
+                <legend>
+                    form
+                </legend>
+                <label>Name:</label>
+                <input type="text" autocomplete="on" autocapitalize="on">
+                <label>Upload a file</label>
+                <input type="file" id="file-upload" accept=".docs"><!--it will accept only docs-->
+                <input type="file" id="image-uplaod" accept="image/*"><!--it will accept all type of images-->
+                <input type="submit" value="submit">
+            </fieldset>
+        </form>
+        <h2>accesskey</h2>
+        <p>press the key <strong><kbd>alt</kbd>+<kbd>s</kbd></strong></p>
+        <button accesskey="s">Access key</button>
+        <br>
+        <h2>iframe</h2>
+        <iframe src="./Video/samplevideo.mp4" aallow="autoplay; fullscreen;" width="600" height="400"></iframe>
+        <h2>table attributes</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Item
+                    </th>
+                    <th>
+                        date
+                    </th>
+                    <th>
+                        cost
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>soap</td>
+                    <td>19th dec</td>
+                    <td>30rs</td>
+                </tr>
+                <tr>
+                    <td>brush</td>
+                    <td>19th dec</td>
+                    <td>50rs</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        sum
+                    </td>
+                    <td>
+                        80rs
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Boolean attributes</h2>
+        <button disabled>Click Me</button>
+        <input type="text" value="This is read-only" readonly>
+        <input type="checkbox" checked> Agree to terms and conditions
+        <input type="text" autofocus>
+        <input type="email" required>
+    </body>
+</html>
