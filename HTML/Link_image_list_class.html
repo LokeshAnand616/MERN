@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Link image list class
+        </title>
+        <link rel="stylesheet" href="../CSS/basics.css">
+        <link rel="icon" href="./Image/icon.png" type="x-icon">
+        <link rel="preload" href="./Image/sample.jpg">
+    </head>
+    <body>
+        <h1>This page shows about link, image, list and class</h1>
+        <h2>Link</h2>
+        <a href="www.google.com">google</a>
+        <img src="./Image/sample.jpg" alt="sample image" width="200px" height="200px">
+        <!--Map and usemap in image-->
+        <figure>
+        <!--Figure tag is used to wrap the image and figcaption is used to caption the give image-->
+        <img src="./Image/usemap.jpg" usemap="#image-map">
+        <map name="image-map">
+            <area target="_self" alt="HTML" title="HTML" href="https://developer.mozilla.org/en-US/docs/Web/HTML" coords="115,152,57" shape="circle">
+            <area target="_parent" alt="CSS" title="CSS" href="https://developer.mozilla.org/en-US/docs/Web/CSS" coords="229,153,47" shape="circle">
+            <area target="_blank" alt="Java script" title="Java script" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" coords="340,155,52" shape="circle">
+        </map>
+        <figcaption>This image uses map function click and see the result.</figcaption>
+        </figure>
+        <!--List-->
+        <p>Ordered list</p>
+        <ol type="1">
+            <li>apple</li>
+            <li>banana</li>
+            <li>orange</li>
+        </ol>
+        <ol type="1" start="4">
+            <li>watermelon</li>
+            <li>star fruit</li>
+            <li>kiwi</li>
+        </ol>
+        <ol type="A" reversed>
+            <li>one</li>
+            <li>two</li>
+            <li>three</li>
+        </ol>
+        <p>Unordered list</p>
+        <ul type="square">
+            <li>nano</li>
+            <li>shift</li>
+        </ul>
+        <p>Discreption list</p>
+        <dl>
+            <dt>HTML</dt>
+            <dd>
+                It is a markup language.
+            </dd>
+            <dt>CSS</dt>
+            <dd>
+                It is a stylesheet.
+            </dd>
+        </dl>
+        <!--Class in html-->
+        <p class="new">
+            Click here
+        </p>
+    </body>
+</html>

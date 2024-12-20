@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Id and iframe
+        </title>
+    </head>
+    <body>
+        <h1>This page shows iframe attributes and id selector</h1>
+        <a href="./multimedia_and_embedding.html" id="name" target="newframe">google</a><br>
+        <iframe name="newframe" id="if" allowFullscreen width="400px" height="400px"></iframe>
+        <script>
+             const el = document.getElementById("if");
+             console.log(el.allowFullscreen);
+        </script>
+    </body>
+</html>

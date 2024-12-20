@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            CSS basics
+        </title>
+        <style>
+            #internal{
+                color: brown;
+                font-weight: 200;
+            }
+            input[type="text"] {
+                border: 1px solid blue;
+            }
+            input[type]{
+                color: blueviolet;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+            a:hover{
+                background-color: blueviolet;
+            }
+            input:focus{
+                border-color: cadetblue;
+            }
+        </style>
+        <link rel="stylesheet" href="../CSS/basics.css">
+    </head>
+    <body>
+        <h1>
+            This page shows basic of css
+        </h1>
+        <!--Inline css-->
+        <p style="font-family: 'Courier New', Courier, monospace;">
+            This line is styled using inline css.
+        </p>
+        <!--Internal css using id selector-->
+        <p id="internal">
+            This line is styled using internal css
+        </p>
+        <!--External css using class selector-->
+        <p class="external">
+            This line is styled using external css
+        </p>
+        <!--Attribute selector-->
+        <input type="text" autofocus>
+        <br>
+        <!--Pesudo class-->
+        <a href="www.google.com">Click here</a><br>
+        <p class="highlight">This paragraph is highlighted and will not be blue.</p>
+        <p>This is a regular paragraph and will be blue.</p><br>
+    </body>
+</html>

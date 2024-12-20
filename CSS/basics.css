@@ -1,0 +1,12 @@
+.external{
+    font-size: larger;
+    font-weight: 300;
+    color: blueviolet;
+}
+p:not(.highlight) {
+    color: blue;
+}
+.new{
+        cursor: pointer;
+        color: blue;
+}

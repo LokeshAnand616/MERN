@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Styles in html
+        </title>
+        <style>
+           @media screen and (max-width: 600px) {
+                body {
+                    background-color: lightblue;
+                }
+            }
+
+            @media screen and (min-width: 601px) and (max-width: 1024px) {
+                body {
+                    background-color: lightgreen;
+                }
+            }
+
+            @media screen and (min-width: 1025px) {
+                body {
+                    background-color: lightyellow;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>This is internal style sheet</h1>
+        <h2>Here we used media rule</h2>
+        <p>The @media rule is used to apply styles based on specific conditions, such as screen size or device orientation. This is especially useful for creating responsive designs that adjust based on the viewport size </p>
+    </body>
+</html>
