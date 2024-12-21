@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Interface Example</title>
+</head>
+<body>
+
+<h1>Document Interface Demonstration</h1>
+
+<p>This example demonstrates using various <code>Document</code> methods and properties.</p>
+
+<!-- Example element created dynamically using the DOM -->
+<div id="myElement" tabindex="0">
+    <h2>Focus this element</h2>
+    <p>Click or use the Tab key to focus here.</p>
+</div>
+
+<!-- Example of adding a new paragraph dynamically -->
+<button id="createParagraphButton">Create New Paragraph</button>
+
+<!-- Example of changing the title of the document -->
+<button id="changeTitleButton">Change Document Title</button>
+
+<script>
+    // Document's activeElement property
+    document.getElementById('myElement').addEventListener('focus', function() {
+        alert('Element is focused!');
+    });
+
+    // Example of creating new elements dynamically
+    const createParagraphButton = document.getElementById('createParagraphButton');
+    createParagraphButton.addEventListener('click', function() {
+        const newParagraph = document.createElement('p');
+        newParagraph.textContent = 'This is a new paragraph added dynamically.';
+        document.body.appendChild(newParagraph);
+    });
+
+    // Change the document title dynamically
+    const changeTitleButton = document.getElementById('changeTitleButton');
+    changeTitleButton.addEventListener('click', function() {
+        document.title = 'New Title Set by JavaScript';
+        alert('Document title changed!');
+    });
+
+    // Log events on scroll and focus
+    window.addEventListener('scroll', function() {
+        console.log('The document is being scrolled!');
+    });
+
+    // Handle DOMContentLoaded event
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('The document has finished loading and parsing.');
+    });
+
+    // Adding a keydown event listener to demonstrate focus management
+    window.addEventListener('keydown', function(event) {
+        if (event.key === 'Tab') {
+            console.log('Tab key pressed, focusing on the next element.');
+        }
+    });
+
+    // Example of using createElement to add a new element
+    const newDiv = document.createElement('div');
+    newDiv.innerHTML = '<h3>New dynamically created content:</h3><p>This content was added using the createElement method.</p>';
+    document.body.appendChild(newDiv);
+    
+    // Example of using document.activeElement to find the currently focused element
+    document.addEventListener('click', function() {
+        const activeElement = document.activeElement;
+        console.log('Currently focused element:', activeElement);
+    });
+</script>
+
+</body>
+</html>

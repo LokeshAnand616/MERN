@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Shadow DOM Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Simple Shadow DOM Example</h1>
+
+  <!-- Custom Message Box -->
+  <message-box message="Hello, this is a shadow DOM message!"></message-box>
+
+  <script>
+    // Define the custom <message-box> element
+    class MessageBox extends HTMLElement {
+      constructor() {
+        super();
+        
+        // Attach shadow DOM to the custom element
+        const shadow = this.attachShadow({ mode: 'open' });
+
+        // Create a div for the message
+        const div = document.createElement('div');
+        div.textContent = this.getAttribute('message');
+
+        // Add style to the shadow DOM
+        const style = document.createElement('style');
+        style.textContent = `
+          div {
+            background-color: lightblue;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+            text-align: center;
+            border: 1px solid #0077cc;
+          }
+        `;
+
+        // Attach the style and message to the shadow root
+        shadow.appendChild(style);
+        shadow.appendChild(div);
+      }
+    }
+
+    // Define the custom element
+    customElements.define('message-box', MessageBox);
+  </script>
+
+</body>
+</html>

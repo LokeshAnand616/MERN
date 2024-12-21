@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            DOM in html
+        </title>
+    </head>
+    <body>
+        <h1>Basic DOM functions</h1>
+        <h2>getElementById</h2>
+        <p id="demo-id">This is a demo with id</p>
+        <p>Using getelementbyid which returns the first element with the id demo-1</p>
+        <h2>getElementByClassName</h2><!--Here we have a div which contains two p tag we can access this container and get these two p tag with same class name-->
+        <div id="container">
+        <p class="demo-class">This is demo with class</p>
+        <p class="demo-class">This is demo with class</p>
+        </div>
+        <p class="demo-class">This is demo with class</p>
+        <p>Using getElementByClassName which returns the collection of elements with the same class name</p>
+        <h2>getElementByTagName</h2>
+        <p>Using getElementByTagName which returns all the elements as a collection with the tag name</p>
+        <h2>getElementByName</h2>
+        <input type="button" name="btn" value="demo">
+        <input type="button" name="btn" value="demo">
+        <p>Using getElementByName which returns all the elements as a node list with the same name</p>
+        <h2>querySelector</h2>
+        <p id="demo-query">Using querySelector we can return the first element which matches the css selector</p>
+        <h2>Traversing elements using parent and child in js</h2>
+        <div id="parent-node">
+            <p id="child-node1">This is a child node</p>
+            <p id="child-node2">This is a child node</p>
+            <p id="child-node3">This is a child node</p>
+            <p id="child-node4">This is a child node</p>
+        </div>
+        <h2>Creating and append a element using js</h2>
+        <ul id="list">
+            <li>first child</li>
+            <li>second child</li>
+            <li>third child</li>
+        </ul>
+    </body>
+    <script src="../JavaScript/dom.js"></script>
+</html>
