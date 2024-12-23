@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Storage Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .theme-button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Web Storage Theme Example</h1>
+    <button class="theme-button" id="themeToggle">Toggle Theme</button>
+
+    <h1>Enter your name</h1>
+    <input type="text" id="nameInput" placeholder="Your name">
+    <button onclick="saveName()">Save Name</button>
+
+    <p><strong>Saved Name: </strong><span id="displayName">None</span></p>
+
+    <script>
+        // Function to apply the theme
+        function applyTheme() {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'dark') {
+                document.body.style.backgroundColor = '#333';
+                document.body.style.color = '#fff';
+            } else {
+                document.body.style.backgroundColor = '#fff';
+                document.body.style.color = '#000';
+            }
+        }
+
+        // Event listener for the button to toggle theme
+        document.getElementById('themeToggle').addEventListener('click', function() {
+            let currentTheme = localStorage.getItem('theme');
+            if (currentTheme === 'dark') {
+                localStorage.setItem('theme', 'light');
+            } else {
+                localStorage.setItem('theme', 'dark');
+            }
+            applyTheme();
+        });
+
+        // Apply the saved theme when the page loads
+        applyTheme();
+
+        if (sessionStorage.getItem('name')) {
+            document.getElementById('displayName').textContent = sessionStorage.getItem('name');
+        }
+
+        // Function to save the name to sessionStorage
+        function saveName() {
+            const name = document.getElementById('nameInput').value;
+            sessionStorage.setItem('name', name);
+            document.getElementById('displayName').textContent = name;
+        }
+    </script>
+</body>
+</html>

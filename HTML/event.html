@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling Demo</title>
+    <style>
+        #animatedBox {
+            width: 100px;
+            height: 100px;
+            background-color: lightcoral;
+            animation: boxAnimation 2s infinite;
+        }
+        @keyframes boxAnimation {
+            0% { background-color: lightcoral; }
+            50% { background-color: lightblue; }
+            100% { background-color: lightcoral; }
+        }
+        #focusInput {
+            margin-top: 20px;
+        }
+        #messageBox {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Event Handling Demo</h1>
+
+    <!-- Animation Box -->
+    <div id="animatedBox"></div>
+
+    <!-- Mouse Event Section -->
+    <h2>Click the button:</h2>
+    <button id="clickButton">Click Me</button>
+
+    <!-- Keyboard Event Section -->
+    <h2>Press a key:</h2>
+    <input type="text" id="keyboardInput" placeholder="Press any key" />
+
+    <!-- Focus Event Section -->
+    <h2>Focus on the input field:</h2>
+    <input type="text" id="focusInput" placeholder="Focus on me" />
+
+    <!-- Form Event Section -->
+    <h2>Submit a form:</h2>
+    <form id="myForm">
+        <input type="text" id="formInput" placeholder="Type something">
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Touch Event Section -->
+    <h2>Touch the screen:</h2>
+    <p id="touchArea" style="border: 2px solid black; width: 200px; height: 200px; margin-top: 10px;">Touch here</p>
+
+    <!-- Window Resize Event Section -->
+    <h2>Resize the window:</h2>
+    <p id="resizeMessage">Resize the window to see the message.</p>
+
+    <!-- Network Event Section -->
+    <h2>Network Connectivity:</h2>
+    <p id="networkStatus">Network status: Unknown</p>
+
+    <!-- Message Box for Event Notifications -->
+    <div id="messageBox"></div>
+
+    <script>
+        // Animation Event (Triggered when animation ends)
+        const animatedBox = document.getElementById('animatedBox');
+        animatedBox.addEventListener('animationend', () => {
+            alert('Animation Ended!');
+        });
+
+        // Mouse Event (Triggered when the button is clicked)
+        document.getElementById('clickButton').addEventListener('click', () => {
+            alert('Button Clicked!');
+        });
+
+        // Keyboard Event (Triggered when a key is pressed)
+        document.getElementById('keyboardInput').addEventListener('keydown', (event) => {
+            alert(`Key Pressed: ${event.key}`);
+        });
+
+        // Focus Event (Triggered when an input field gains focus)
+        document.getElementById('focusInput').addEventListener('focus', () => {
+            alert('Input Focused!');
+        });
+
+        // Form Event (Triggered when a form is submitted)
+        document.getElementById('myForm').addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent actual form submission for demo
+            alert('Form Submitted!');
+        });
+
+        // Touch Event (Triggered when screen is touched)
+        document.getElementById('touchArea').addEventListener('touchstart', () => {
+            alert('Screen Touched!');
+        });
+
+        // Window Resize Event (Triggered when the window is resized)
+        window.addEventListener('resize', () => {
+            document.getElementById('resizeMessage').textContent = 'Window Resized!';
+        });
+
+        // Network Event (Triggered when online or offline)
+        window.addEventListener('online', () => {
+            document.getElementById('networkStatus').textContent = 'Network status: Online';
+        });
+
+        window.addEventListener('offline', () => {
+            document.getElementById('networkStatus').textContent = 'Network status: Offline';
+        });
+
+        // Event to display notifications for other events
+        document.querySelectorAll('button, input').forEach(element => {
+            element.addEventListener('focus', () => {
+                document.getElementById('messageBox').textContent = 'Focused on an element!';
+            });
+
+            element.addEventListener('blur', () => {
+                document.getElementById('messageBox').textContent = 'Lost focus on an element!';
+            });
+        });
+    </script>
+</body>
+</html>
