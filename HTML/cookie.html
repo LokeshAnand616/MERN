@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Input Example</title>
+</head>
+<body>
+
+<h1>User Input Example</h1>
+
+<!-- Input field for user to type something -->
+<label for="userInput">Enter something:</label>
+<input type="text" id="userInput" placeholder="Type something here">
+
+<!-- Button to submit the input -->
+<button onclick="submitInput()">Submit</button>
+
+<!-- Display entered text -->
+<p><strong>Entered Text:</strong> <span id="displayText">None</span></p>
+
+<!-- Store entered text in a cookie -->
+<script>
+    // Function to get the user input and display it
+    function submitInput() {
+        // Get the value from the input field
+        var userInput = document.getElementById('userInput').value;
+        
+        // Display the entered text below the input field
+        document.getElementById('displayText').textContent = userInput;
+        
+        // Optional: Store the entered text in a cookie
+        document.cookie = "userText=" + encodeURIComponent(userInput) + "; path=/; max-age=3600";  // Cookie will expire in 1 hour
+    }
+
+    // Check if there's a stored cookie and display it on page load
+    window.onload = function() {
+        console.log(document.cookie);        
+        var cookies = document.cookie.split(';');
+        console.log(cookies);
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            if (cookie.startsWith('userText=')) {
+                document.getElementById('displayText').textContent = decodeURIComponent(cookie.substring('userText='.length));
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple History API Example</title>
+</head>
+<body>
+
+  <h1>Simple History API Example</h1>
+
+  <button onclick="addHistory()">Add History</button>
+  <button onclick="goBack()">Go Back</button>
+  <button onclick="goForward()">Go Forward</button>
+
+  <p id="current-state">Current URL: <span id="url"></span></p>
+
+  <script>
+    // Function to add a new history entry
+    function addHistory() {
+      // Add a state to the history stack
+      const pageNumber = Math.floor(Math.random() * 100) + 1; // Random page number
+      history.pushState({ page: pageNumber }, `Page ${pageNumber}`, `?page=${pageNumber}`);
+
+      // Update the displayed current URL
+      document.getElementById("url").textContent = window.location.href;
+    }
+
+    // Function to go back in history
+    function goBack() {
+      history.back();
+    }
+
+    // Function to go forward in history
+    function goForward() {
+      history.forward();
+    }
+
+    // Listen for popstate event to update the displayed URL
+    window.addEventListener("popstate", function(event) {
+      document.getElementById("url").textContent = window.location.href;
+    });
+
+  </script>
+
+</body>
+</html>

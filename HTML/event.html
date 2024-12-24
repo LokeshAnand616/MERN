@@ -87,7 +87,7 @@
         // Focus Event (Triggered when an input field gains focus)
         document.getElementById('focusInput').addEventListener('focus', () => {
             alert('Input Focused!');
-        });
+        },{ once: true });
 
         // Form Event (Triggered when a form is submitted)
         document.getElementById('myForm').addEventListener('submit', (event) => {

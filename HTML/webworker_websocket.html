@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebSocket in Web Worker</title>
+</head>
+<body>
+  <h1>WebSocket with Web Worker</h1>
+
+  <input type="text" id="messageInput" placeholder="Enter message">
+  <button id="sendMessageBtn">Send Message</button>
+
+  <p>Server Response: <span id="serverResponse"></span></p>
+
+  <script>
+    if (window.Worker && window.WebSocket) {
+      // Create a new Web Worker
+      const worker = new Worker(URL.createObjectURL(new Blob([`
+        let socket;
+
+        // Set up WebSocket connection inside the worker
+        onmessage = function(e) {
+          if (e.data === 'init') {
+            socket = new WebSocket('wss://echo.websocket.org');
+            
+            socket.onopen = function() {
+              postMessage("WebSocket connected.");
+            };
+
+            socket.onmessage = function(event) {
+              postMessage(event.data); // Send server response back to main thread
+            };
+
+            socket.onerror = function(error) {
+              postMessage("Error: " + error.message);
+            };
+          } else {
+            // Send any message from the main thread to WebSocket server
+            socket.send(e.data);
+          }
+        };
+      `], { type: 'application/javascript' })));
+
+      // Initialize WebSocket connection when worker is created
+      worker.postMessage('init');
+
+      // Get the send button and input field
+      const sendMessageBtn = document.getElementById('sendMessageBtn');
+      const messageInput = document.getElementById('messageInput');
+
+      // Send message to the worker when button is clicked
+      sendMessageBtn.addEventListener('click', function() {
+        const message = messageInput.value;
+        if (message) {
+          worker.postMessage(message);  // Send message to Web Worker
+        }
+      });
+
+      // Handle the response from the worker and display it
+      worker.onmessage = function(event) {
+        document.getElementById('serverResponse').textContent = event.data;
+      };
+    } else {
+      console.log('Web Workers or WebSockets are not supported.');
+    }
+  </script>
+</body>
+</html>
