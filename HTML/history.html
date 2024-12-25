@@ -23,7 +23,7 @@
       history.pushState({ page: pageNumber }, `Page ${pageNumber}`, `?page=${pageNumber}`);
 
       // Update the displayed current URL
-      document.getElementById("url").textContent = window.location.href;
+      document.getElementById("url").textContent = window.location;
     }
 
     // Function to go back in history
@@ -38,7 +38,7 @@
 
     // Listen for popstate event to update the displayed URL
     window.addEventListener("popstate", function(event) {
-      document.getElementById("url").textContent = window.location.href;
+      document.getElementById("url").textContent = window.location;
     });
 
   </script>

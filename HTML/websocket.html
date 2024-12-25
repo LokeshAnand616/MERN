@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple WebSocket Client</title>
+</head>
+<body>
+    <h1>Simple WebSocket Example</h1>
+    <div id="messages"></div>
+
+    <input type="text" id="messageInput" placeholder="Type a message..." />
+    <button onclick="sendMessage()">Send Message</button>
+
+    <script>
+        // Use a public WebSocket echo server
+        const socket = new WebSocket('wss://echo.websocket.org');
+
+        // When the WebSocket connection is opened
+        socket.onopen = function() {
+            console.log('Connected to the WebSocket server');
+            document.getElementById("messages").innerHTML += "<p>Connected to the server</p>";
+        };
+
+        // When a message is received from the server
+        socket.onmessage = function(event) {
+            const messagesDiv = document.getElementById("messages");
+            messagesDiv.innerHTML += `<p>Received: ${event.data}</p>`;
+        };
+
+        // When the WebSocket connection is closed
+        socket.onclose = function() {
+            console.log('Disconnected from the WebSocket server');
+        };
+
+        // If an error occurs with the WebSocket connection
+        socket.onerror = function(error) {
+            console.log('WebSocket error:', error);
+        };
+
+        // Function to send a message to the WebSocket server
+        function sendMessage() {
+            const message = document.getElementById("messageInput").value;
+            if (message) {
+                socket.send(message); // Send message to the server
+                document.getElementById("messageInput").value = ''; // Clear input field
+            }
+        }
+    </script>
+</body>
+</html>

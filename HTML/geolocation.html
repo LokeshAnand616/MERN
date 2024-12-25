@@ -1,30 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Geolocation Example</title>
-</head>
-<body>
+<html>
+    <head>
+        <title>
+            geolocation
+        </title>
+    </head>
+    <body>
+        <button id="get">click</button>
+        <p>location<span id="lat"></span><span id="alt"></span><span id="acc"></span></p>
+        <button id="watch">track</button>
+        <p id="details"></p>
+    </body>
+    <script>
+        let btn = document.getElementById('get');
+        let lat = document.getElementById('lat');
+        let alt = document.getElementById('alt');
+        let acc = document.getElementById('acc');
+        let track = document.getElementById('watch');
+        let details = document.getElementById('details');
 
-  <h1>Geolocation Example</h1>
-  <button onclick="getLocation()">Get My Location</button>
+        btn.addEventListener('click',()=>{
+            navigator.geolocation.getCurrentPosition(setLocation,err);
+        });
 
-  <p id="location"></p>
+        function setLocation(position){
+            lat.innerText = position.coords.latitude;       
+            alt.innerText = position.coords.altitude;
+            acc.innerText = position.coords.accuracy;
+        }
 
-  <script>
-    function getLocation() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-      }
-    }
+        track.addEventListener('click',()=>{
+            navigator.geolocation.watchPosition(setLocation,err);
+        })
 
-    function showPosition(position) {
-      const lat = position.coords.latitude;
-      const lon = position.coords.longitude;
-      document.getElementById("location").innerHTML = "Latitude: " + lat + "<br>Longitude: " + lon;
-    }
-  </script>
-
-</body>
+        function err(error){
+            if(error.code == error.PERMISSION_DENIED){
+                details.innerText = "permission denied";
+            }
+        }
+    </script>
 </html>
