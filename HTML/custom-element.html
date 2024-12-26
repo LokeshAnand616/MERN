@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Element with Lifecycle</title>
+</head>
+<body>
+  <user-info></user-info>
+
+  <script>
+    class UserInfo extends HTMLElement {
+      constructor() {
+        super();
+        this._data = null;
+        this._interval = null;
+      }
+
+      connectedCallback() {
+        console.log('UserInfo custom element connected');
+        this.innerHTML = '<p>Loading user info...</p>';
+        
+        // Simulate fetching data (e.g., from an API)
+        this._interval = setInterval(() => {
+          this._data = { name: 'John Doe', age: 30 };
+          this.render();
+        }, 2000);
+      }
+
+      disconnectedCallback() {
+        console.log('UserInfo custom element disconnected');
+        
+        // Stop any ongoing processes (e.g., data fetching)
+        clearInterval(this._interval);
+        this.innerHTML = '<p>Component removed. No data fetching happening.</p>';
+      }
+
+      render() {
+        this.innerHTML = `
+          <h2>User Info</h2>
+          <p>Name: ${this._data.name}</p>
+          <p>Age: ${this._data.age}</p>
+        `;
+      }
+    }
+
+    customElements.define('user-info', UserInfo);
+  </script>
+</body>
+</html>

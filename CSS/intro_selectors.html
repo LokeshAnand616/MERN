@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors Example</title>
+    <link rel="stylesheet" href="into.css">
+</head>
+<body>
+
+    <!-- Universal Selector Example -->
+    <div class="container">
+        <h1>Welcome to CSS Selectors Example</h1>
+
+        <!-- Type Selector Example -->
+        <p>This is a paragraph element styled with the type selector.</p>
+        <p>Another paragraph element, demonstrating type selectors.</p>
+
+        <!-- Class Selector Example -->
+        <div class="highlight">
+            <h2>Class Selector Example</h2>
+            <p>This section uses a class selector to apply styles.</p>
+        </div>
+
+        <!-- ID Selector Example -->
+        <div id="unique-section">
+            <h2>ID Selector Example</h2>
+            <p>This section uses an ID selector to apply styles.</p>
+        </div>
+
+        <!-- Attribute Selector Example -->
+        <a href="https://example.com" target="_blank" title="Click me" class="link">Click me (Attribute Selector)</a>
+
+        <!-- Descendant Combinator Example -->
+        <div class="parent">
+            <p>This is a parent element with a descendant p element.</p>
+            <div class="child">
+                <p>This is a descendant element.</p>
+            </div>
+        </div>
+
+        <!-- Child Combinator Example -->
+        <div class="parent-child">
+            <h3>Child Combinator Example</h3>
+            <p>This paragraph will be styled using the child combinator.</p>
+            <div class="child">
+                <p>This is the child element.</p>
+            </div>
+        </div>
+
+        <!-- General Sibling Combinator Example -->
+        <div class="sibling-container">
+            <p>First sibling</p>
+            <p>Second sibling styled with the general sibling combinator.</p>
+        </div>
+
+        <!-- Adjacent Sibling Combinator Example -->
+        <div class="adjacent-sibling">
+            <p>First paragraph.</p>
+            <p class="adjacent">Adjacent sibling example styled with adjacent sibling combinator.</p>
+        </div>
+
+        <!-- Pseudo-classes Example -->
+        <a href="https://example.com" class="btn">Hover over this link (Pseudo-class)</a>
+
+        <!-- Pseudo-elements Example -->
+        <div class="pseudo-element">
+            <p>This paragraph has a pseudo-element applied before it.</p>
+        </div>
+    </div>
+
+</body>
+</html>

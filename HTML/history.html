@@ -12,7 +12,7 @@
   <button onclick="addHistory()">Add History</button>
   <button onclick="goBack()">Go Back</button>
   <button onclick="goForward()">Go Forward</button>
-
+  <button onclick="go1()">go1</button>
   <p id="current-state">Current URL: <span id="url"></span></p>
 
   <script>
@@ -34,6 +34,10 @@
     // Function to go forward in history
     function goForward() {
       history.forward();
+    }
+
+    function go1(){
+      history.go(1);
     }
 
     // Listen for popstate event to update the displayed URL

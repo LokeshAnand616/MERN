@@ -1,0 +1,75 @@
+/* Universal Selector */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Type Selector */
+p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Class Selector */
+.highlight {
+    background-color: yellow;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* ID Selector */
+#unique-section {
+    background-color: #f0f0f0;
+    padding: 15px;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+}
+
+/* Attribute Selector */
+a[title] {
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* Descendant Combinator */
+.parent p {
+    color: green;
+    font-weight: bold;
+}
+
+/* Child Combinator */
+.parent-child > p {
+    color: blue;
+    font-size: 18px;
+}
+
+/* General Sibling Combinator */
+.sibling-container p {
+    color: #333;
+}
+
+.sibling-container p ~ p {
+    color: #ff6347;
+}
+
+/* Adjacent Sibling Combinator */
+.adjacent-sibling p + p {
+    color: red;
+    font-weight: bold;
+}
+
+/* Pseudo-classes */
+a.btn:hover {
+    background-color: #ddd;
+    color: white;
+    padding: 5px 10px;
+}
+
+/* Pseudo-elements */
+.pseudo-element p::before {
+    content: "Note: ";
+    font-weight: bold;
+    color: #ff4500;
+}
