@@ -1,0 +1,14 @@
+/* Set up the multi-column layout */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    column-count: 3;         /* Set the number of columns */
+    column-gap: 20px;        /* Set the gap between columns */
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Optional: Styling for paragraphs to add some spacing and make it more readable */
+  .container p {
+    margin-bottom: 15px;
+  }
+  
