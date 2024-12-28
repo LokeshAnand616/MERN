@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Styling Basics</title>
+  <style>
+    /* Global styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #2e8b57;
+    }
+
+    /* Box model: Applying margin, padding, and border */
+    .container {
+      width: 80%;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border: 2px solid #ddd;
+      box-sizing: border-box; /* ensures padding is included in width */
+      border-radius: 8px;
+    }
+
+    /* Basic text and font styling */
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    /* Using selectors */
+    .highlight {
+      color: #ff6347; /* Tomato color */
+      font-weight: bold;
+    }
+
+    /* Backgrounds and borders */
+    .banner {
+      background-color: #4CAF50;
+      color: white;
+      padding: 30px;
+      text-align: center;
+      border-radius: 5px;
+    }
+
+    .highlight-box {
+      background-image: linear-gradient(to right, #ff7e5f, #feb47b);
+      padding: 15px;
+      color: white;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Table styling */
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    /* Handling overflow */
+    .overflow-example {
+      width: 300px;
+      height: 150px;
+      overflow: auto;
+      border: 2px solid #ccc;
+    }
+
+    /* Sizing items in CSS */
+    .responsive-box {
+      width: 100%;
+      max-width: 600px;
+      margin: 10px auto;
+      padding: 20px;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Header and Banner Section -->
+  <header class="banner">
+    <h1>Welcome to CSS Styling Basics</h1>
+    <p>Learn the fundamentals of CSS styling, selectors, and layout techniques.</p>
+  </header>
+
+  <!-- Main Content Container -->
+  <div class="container">
+
+    <!-- Section: Text Styling and Highlighting -->
+    <section>
+      <h2>CSS Text and Font Styling</h2>
+      <p>CSS allows you to control the appearance of text elements. For example, we can <span class="highlight">highlight important text</span> using CSS selectors, change the color, weight, and style of the text. Styling text is one of the first steps in creating visually appealing web pages.</p>
+    </section>
+
+    <!-- Section: Backgrounds and Borders -->
+    <section>
+      <h2>Backgrounds and Borders</h2>
+      <div class="highlight-box">
+        <p>This box uses a gradient background and has a subtle shadow effect.</p>
+      </div>
+      <p>You can also apply solid color backgrounds, borders, and round the corners of your boxes, as seen here.</p>
+    </section>
+
+    <!-- Section: Table Styling -->
+    <section>
+      <h2>Table Styling</h2>
+      <p>CSS can be used to make HTML tables look more attractive and easier to read.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Subject</th>
+            <th>Grade</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mathematics</td>
+            <td>A+</td>
+            <td>Passed</td>
+          </tr>
+          <tr>
+            <td>Science</td>
+            <td>A</td>
+            <td>Passed</td>
+          </tr>
+          <tr>
+            <td>History</td>
+            <td>B</td>
+            <td>Passed</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Section: Handling Overflow -->
+    <section>
+      <h2>Handling Overflow</h2>
+      <div class="overflow-example">
+        <p>This box has too much content to fit in the allocated space. Scroll down to see more content.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id dui et metus auctor imperdiet. Sed aliquet eu elit non convallis.</p>
+        <p>More content here...</p>
+      </div>
+    </section>
+
+    <!-- Section: Sizing and Responsive Layout -->
+    <section>
+      <h2>Responsive Design & Sizing</h2>
+      <p>CSS allows for responsive design by using percentage-based widths, max-width properties, and flexible layouts.</p>
+      <div class="responsive-box">
+        <p>This box is responsive and adjusts its width based on the screen size. Try resizing the browser window!</p>
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>
