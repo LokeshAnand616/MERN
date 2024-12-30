@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced JavaScript Examples</title>
+</head>
+<body>
+    <h1>JavaScript Basics and More</h1>
+   
+    <button onclick="runExamples()">Run All Examples</button>
+    <p id="output"></p>
+   
+    <script>
+        // 1. Variables - Store Data
+        var name = "lokesh";           // String variable
+        var age = 23;                 // Number variable
+        const country = "India";        // Constant variable (cannot be changed)
+       
+        // 2. Math Operations
+        let num1 = 16;
+        let num2 = 9;
+        let sum = num1 + num2;       // Addition
+        let diff = num1 - num2;      // Subtraction
+        let product = num1 * num2;   // Multiplication
+        let quotient = num1 / num2;  // Division
+ 
+        // 3. Strings
+        let greeting = "   Welcome to JavaScript!   ";
+        let trimmedGreeting = greeting.trim();       // Removes whitespace
+        let upperGreeting = greeting.toUpperCase();  // Converts to uppercase
+        let lowerGreeting = greeting.toLowerCase();  // Converts to lowercase
+        let slicedGreeting = greeting.slice(3, 10);  // Extracts a substring
+ 
+        // 4. Arrays
+        let fruits = ["apple", "banana", "cherry"];
+        fruits.push("grape");  // Adds a new element to the array
+        fruits.pop();          // Removes the last element
+        fruits.unshift("kiwi");  // Adds an element to the beginning
+        fruits.shift();        // Removes the first element
+ 
+        // 5. Functions
+        function greetUser(userName) {
+            return "Hello, " + userName + "!";
+        }
+ 
+        // Function to calculate area of a rectangle
+        function calculateArea(length, width) {
+            return length * width;
+        }
+ 
+        // 6. Conditionals (if/else)
+        function checkAge(userAge) {
+            if (userAge >= 18) {
+                return "You are an adult.";
+            } else {
+                return "You are a minor.";
+            }
+        }
+ 
+        // 7. Loops (for/while)
+        function countDown(startNumber) {
+            let countdownText = "";
+            for (let i = startNumber; i >= 0; i--) {
+                countdownText += i + " ";
+            }
+            return countdownText.trim();
+        }
+ 
+        // 8. Event Handling
+        function changeText() {
+            const outputElement = document.getElementById("output");
+            outputElement.innerHTML = "JavaScript event triggered!";
+        }
+ 
+        // 9. Arrow Functions (ES6)
+        const multiply = (a, b) => a * b;
+ 
+        // 10. Objects
+        const person = {
+            firstName: "lokesh",
+            lastName: "iyyappan",
+            age: 23,
+            fullName: function() {
+                return this.firstName + " " + this.lastName;
+            }
+        };
+ 
+        // 11. ES6 Classes
+        class Car {
+            constructor(make, model, year) {
+                this.make = make;
+                this.model = model;
+                this.year = year;
+            }
+ 
+            getCarInfo() {
+                return this.year + " " + this.make + " " + this.model;
+            }
+        }
+       
+        // 12. Destructuring (Objects and Arrays)
+        const person2 = { name: "lokesh", age: 23 };
+        const { name: personName, age: personAge } = person2;  // Object destructuring
+ 
+        const numbers = [1, 2, 3];
+        const [first, second] = numbers;  // Array destructuring
+ 
+        // 13. Template Literals
+        const welcomeMessage = `Hello, ${personName}. You are ${personAge} years old.`;
+ 
+        // 14. Promises
+        const myPromise = new Promise((resolve, reject) => {
+            let success = true;
+            if(success) {
+                resolve("The operation was successful!");
+            } else {
+                reject("The operation failed.");
+            }
+        });
+ 
+        // 15. Async/Await
+        async function fetchData() {
+            try {
+                const data = await myPromise;
+                return data;
+            } catch (error) {
+                return error;
+            }
+        }
+ 
+        // 16. Local Storage
+        function saveData() {
+            localStorage.setItem("user", "lokesh");
+        }
+ 
+        function loadData() {
+            const user = localStorage.getItem("user");
+            alert(user);  // Alerts the saved value
+        }
+ 
+        // 17. Error Handling
+        function divide(a, b) {
+            try {
+                if (b === 0) {
+                    throw "Division by zero is not allowed!";
+                }
+                return a / b;
+            } catch (error) {
+                return "Error: " + error;
+            }
+        }
+ 
+        // Running All Examples in a Single Function
+        async function runExamples() {
+            let result = "";
+ 
+            // Variables Example
+            result += "Name: " + name + ", Age: " + age + ", Country: " + country + "<br>";
+ 
+            // Math Operations Example
+            result += "Sum of " + num1 + " and " + num2 + " is: " + sum + "<br>";
+            result += "Difference between " + num1 + " and " + num2 + " is: " + diff + "<br>";
+            result += "Product of " + num1 + " and " + num2 + " is: " + product + "<br>";
+            result += "Quotient of " + num1 + " and " + num2 + " is: " + quotient + "<br>";
+ 
+            // String Methods Example
+            result += "Trimmed Greeting: " + trimmedGreeting + "<br>";
+            result += "Uppercase Greeting: " + upperGreeting + "<br>";
+            result += "Lowercase Greeting: " + lowerGreeting + "<br>";
+            result += "Sliced Greeting: " + slicedGreeting + "<br>";
+ 
+            // Arrays Example
+            result += "Fruits Array after changes: " + fruits.join(", ") + "<br>";
+ 
+            // Function Example (greetUser)
+            result += greetUser(name) + "<br>";
+ 
+            // Function Example (calculateArea)
+            let area = calculateArea(5, 10);
+            result += "Area of rectangle with length 5 and width 10 is: " + area + " square units<br>";
+ 
+            // Conditionals Example (checkAge)
+            result += checkAge(age) + "<br>";
+ 
+            // Loops Example (countDown)
+            result += "Countdown from 5: " + countDown(5) + "<br>";
+ 
+            // Arrow Function Example
+            result += "Arrow Function Result (multiply 4 * 5): " + multiply(4, 5) + "<br>";
+ 
+            // Objects Example
+            result += "Full Name from Object: " + person.fullName() + "<br>";
+ 
+            // Class Example
+            let myCar = new Car("Toyota", "Camry", 2022);
+            result += "Car Info: " + myCar.getCarInfo() + "<br>";
+ 
+            // Destructuring Example
+            result += `Destructured Person - Name: ${personName}, Age: ${personAge}<br>`;
+            result += `Destructured Numbers - First: ${first}, Second: ${second}<br>`;
+ 
+            // Template Literals Example
+            result += welcomeMessage + "<br>";
+ 
+            // Promises Example
+            myPromise.then(res => {
+                result += res + "<br>";
+            }).catch(error => {
+                result += error + "<br>";
+            });
+ 
+            // Async/Await Example
+            const asyncResult = await fetchData();
+            result += "Fetched Data: " + asyncResult + "<br>";
+ 
+            // Local Storage Example
+            saveData();  // Save user data
+            result += "Data saved in local storage.<br>";
+            loadData();  // Load user data
+ 
+            // Error Handling Example
+            result += "Divide 10 by 2: " + divide(10, 2) + "<br>";
+            result += "Divide 10 by 0: " + divide(10, 0) + "<br>";
+ 
+            // Event Handling Example
+            result += '<button onclick="changeText()">Click to Change Text</button>';
+ 
+            document.getElementById("output").innerHTML = result;
+        }
+    </script>
+</body>
+</html>

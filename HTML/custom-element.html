@@ -13,7 +13,7 @@
       constructor() {
         super();
         this._data = null;
-        this._interval = null;
+        this._interval = null;  
       }
 
       connectedCallback() {
@@ -38,7 +38,7 @@
       render() {
         this.innerHTML = `
           <h2>User Info</h2>
-          <p>Name: ${this._data.name}</p>
+          <p>Name: ${this._data.name}</p>=
           <p>Age: ${this._data.age}</p>
         `;
       }
