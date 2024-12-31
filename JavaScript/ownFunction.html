@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Custom Message Box</title>
+    <style>
+        .msgBox {
+            width: 200px;
+            padding: 20px;
+            margin: 20px;
+            background-color: lightblue;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+        .msgBox button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            padding: 5px 10px;
+            border: none;
+            background-color: red;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="showMessageBtn">Click Me to Show Message</button>
+
+    <script>
+        // Function to create and display the custom message box
+        function displayMessage(message) {
+            // Create a new div element
+            const msgBox = document.createElement("div");
+            msgBox.classList.add("msgBox");
+
+            // Create a paragraph element for the message
+            const msgPara = document.createElement("p");
+            msgPara.textContent = message;
+            msgBox.appendChild(msgPara);
+
+            // Create a close button
+            const closeBtn = document.createElement("button");
+            closeBtn.textContent = "x";
+            closeBtn.addEventListener("click", () => msgBox.remove());
+            msgBox.appendChild(closeBtn);
+
+            // Append the message box to the body
+            document.body.appendChild(msgBox);
+        }
+
+        // Event listener to trigger the displayMessage function when the button is clicked
+        const button = document.getElementById("showMessageBtn");
+        button.addEventListener("click", () => {
+            displayMessage("This is a custom message!");
+        });
+    </script>
+
+</body>
+</html>

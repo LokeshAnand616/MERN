@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Function Example</title>
+</head>
+<body>
+    <h2>Enter a Number</h2>
+    <input type="text" id="numberInput" placeholder="Enter a number">
+    <p id="result"></p>
+
+    <script>
+        // Function to square a number
+        function square(num) {
+            return num * num;
+        }
+
+        // Function to cube a number
+        function cube(num) {
+            return num * num * num;
+        }
+
+        // Event listener for input change
+        document.getElementById('numberInput').addEventListener('input', function() {
+            const num = parseFloat(this.value);
+            if (isNaN(num)) {
+                document.getElementById('result').textContent = "Please enter a valid number!";
+            } else {
+                // Show results of square and cube
+                document.getElementById('result').textContent = 
+                    `Square: ${square(num)}, Cube: ${cube(num)}`;
+            }
+        });
+    </script>
+</body>
+</html>

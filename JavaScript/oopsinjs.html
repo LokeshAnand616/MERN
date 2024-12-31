@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Classes Example</title>
+</head>
+<body>
+    <h1>JavaScript Classes Example</h1>
+    <div id="output"></div>
+
+    <script>
+        // Person class definition
+        class Person {
+            constructor(name) {
+                this.name = name;
+            }
+
+            introduceSelf() {
+                console.log(`Hi! I'm ${this.name}`);
+                document.getElementById('output').innerHTML += `Hi! I'm ${this.name}<br>`;
+            }
+        }
+
+        // Professor class extends Person
+        class Professor extends Person {
+            constructor(name, subject) {
+                super(name); // Call the parent class constructor
+                this.subject = subject;
+            }
+
+            introduceSelf() {
+                console.log(`My name is ${this.name}, and I will be your ${this.subject} professor.`);
+                document.getElementById('output').innerHTML += `My name is ${this.name}, and I will be your ${this.subject} professor.<br>`;
+            }
+
+            grade(paper) {
+                const grade = Math.floor(Math.random() * (5 - 1) + 1); // Random grade between 1 and 5
+                console.log(`Grading paper: ${paper}, Grade: ${grade}`);
+                document.getElementById('output').innerHTML += `Grading paper: ${paper}, Grade: ${grade}<br>`;
+            }
+        }
+
+        // Student class extends Person with private property #year
+        class Student extends Person {
+            #year;  // Private property
+
+            constructor(name, year) {
+                super(name);  // Call the parent class constructor
+                this.#year = year;
+            }
+
+            introduceSelf() {
+                console.log(`Hi! I'm ${this.name}, and I'm in year ${this.#year}.`);
+                document.getElementById('output').innerHTML += `Hi! I'm ${this.name}, and I'm in year ${this.#year}.<br>`;
+            }
+
+            canStudyArchery() {
+                return this.#year > 1; // Year greater than 1 can study archery
+            }
+        }
+
+        // Create instances and demonstrate functionality
+        const professor = new Professor("Dr. Walsh", "Math");
+        professor.introduceSelf();  // Professor introduction
+        professor.grade("Final Exam");  // Grading paper
+
+        const student = new Student("John", 2);
+        student.introduceSelf();  // Student introduction
+        console.log(`Can study archery: ${student.canStudyArchery()}`);
+        document.getElementById('output').innerHTML += `Can study archery: ${student.canStudyArchery()}<br>`;
+
+        // Uncommenting the following line will throw an error as #year is private
+        // console.log(student.#year);  // SyntaxError: Private field '#year' must be declared in an enclosing class
+    </script>
+</body>
+</html>

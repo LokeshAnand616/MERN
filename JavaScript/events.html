@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling Example</title>
+</head>
+<body>
+    <h1>Event Handling Demo</h1>
+
+    <!-- Button to change background color -->
+    <button>Change Color</button>
+
+    <!-- Simple form with name fields -->
+    <form>
+        <div>
+            <label for="fname">First name:</label>
+            <input id="fname" type="text" />
+        </div>
+        <div>
+            <label for="lname">Last name:</label>
+            <input id="lname" type="text" />
+        </div>
+        <div>
+            <input id="submit" type="submit" value="Submit" />
+        </div>
+    </form>
+    <p></p>
+
+    <script>
+        // 1. Random color changer on button click
+        const btn = document.querySelector("button");
+
+        function random(number) {
+            return Math.floor(Math.random() * (number + 1));
+        }
+
+        // Function to change background color
+        function changeBackground() {
+            const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
+            document.body.style.backgroundColor = rndCol;
+        }
+
+        // Adding event listener for the 'click' event on the button
+        btn.addEventListener("click", changeBackground);
+
+        // 2. Form validation example
+        const form = document.querySelector("form");
+        const fname = document.getElementById("fname");
+        const lname = document.getElementById("lname");
+        const para = document.querySelector("p");
+
+        // Adding event listener to handle form submission
+        form.addEventListener("submit", (e) => {
+            if (fname.value === "" || lname.value === "") {
+                // Prevent form submission if fields are empty
+                e.preventDefault();
+                para.textContent = "You need to fill in both names!";
+            }
+        });
+    </script>
+</body>
+</html>

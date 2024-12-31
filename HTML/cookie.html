@@ -38,7 +38,7 @@
         console.log(document.cookie);        
         var cookies = document.cookie.split(';');
         console.log(cookies);
-        for (var i = 0; i < cookies.length; i++) {
+        for (var i = 0; i < cookies.length(); i++) {
             var cookie = cookies[i].trim();
             if (cookie.startsWith('userText=')) {
                 document.getElementById('displayText').textContent = decodeURIComponent(cookie.substring('userText='.length));

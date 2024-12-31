@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Prototypes Example</title>
+</head>
+<body>
+    <h1>Prototype and Inheritance in JavaScript</h1>
+    <div id="output"></div>
+
+    <script>
+        // Example 1: Basic Object with Prototype Chain
+        const myObject = {
+            city: "Madrid",
+            greet() {
+                console.log(`Greetings from ${this.city}`);
+            },
+        };
+
+        myObject.greet(); // Greetings from Madrid
+
+        // Check the prototype of the object
+        console.log(Object.getPrototypeOf(myObject)); // Object.prototype
+
+        // Example 2: Creating an Object with Object.create()
+        const personPrototype = {
+            greet() {
+                console.log("Hello from the prototype!");
+            },
+        };
+
+        const person = Object.create(personPrototype);
+        person.greet(); // Hello from the prototype!
+
+        // Example 3: Constructor Function and Prototypes
+        function Person(name) {
+            this.name = name;
+        }
+
+        // Adding method to the prototype of Person
+        Person.prototype.greet = function() {
+            console.log(`Hello, my name is ${this.name}`);
+        };
+
+        const john = new Person("John");
+        john.greet(); // Hello, my name is John
+
+        // Example 4: Shadowing Properties in the Prototype Chain
+        const myDate = new Date(1995, 11, 17);
+        console.log(myDate.getTime()); // 819129600000
+
+        // Shadowing the getTime method
+        myDate.getTime = function() {
+            console.log("Custom time method!");
+        };
+
+        myDate.getTime(); // Custom time method!
+
+        // Example 5: Walking up the Prototype Chain
+        let object = myDate;
+        do {
+            object = Object.getPrototypeOf(object);
+            console.log(object); // Logs Date.prototype, Object.prototype, null
+        } while (object);
+
+        // Example 6: Check own properties using Object.hasOwn()
+        console.log(Object.hasOwn(john, "name")); // true
+        console.log(Object.hasOwn(john, "greet")); // false
+    </script>
+</body>
+</html>

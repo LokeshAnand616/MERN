@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Object Basics</title>
+</head>
+<body>
+    <h2>JavaScript Object Basics</h2>
+
+    <script>
+        // 1. Object Literal
+        const person = {
+            name: { first: "Bob", last: "Smith" },
+            age: 32,
+            bio() {
+                console.log(`${this.name.first} ${this.name.last} is ${this.age} years old.`);
+            },
+            introduceSelf() {
+                console.log(`Hi! I'm ${this.name.first}.`);
+            }
+        };
+
+        // Accessing object properties and methods
+        console.log(person.name.first);  // "Bob"
+        console.log(person["age"]);      // 32
+        person.bio();                    // "Bob Smith is 32 years old."
+        person.introduceSelf();          // "Hi! I'm Bob."
+
+        // 2. Changing object properties
+        person.age = 45;
+        person["name"]["last"] = "Cratchit";
+        console.log(person.age);         // 45
+        console.log(person.name.last);   // "Cratchit"
+
+        // 3. Adding new properties and methods
+        person["height"] = "1.75m";
+        person.farewell = function () {
+            console.log("Goodbye, everyone!");
+        };
+        console.log(person.height);      // "1.75m"
+        person.farewell();               // "Goodbye, everyone!"
+
+        // 4. Using Constructor Function to create objects
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.introduceSelf = function () {
+                console.log(`Hi! I'm ${this.name}, and I am ${this.age} years old.`);
+            };
+        }
+
+        // Creating new person objects
+        const person1 = new Person("John", 30);
+        const person2 = new Person("Jane", 25);
+        person1.introduceSelf();  // "Hi! I'm John, and I am 30 years old."
+        person2.introduceSelf();  // "Hi! I'm Jane, and I am 25 years old."
+    </script>
+</body>
+</html>

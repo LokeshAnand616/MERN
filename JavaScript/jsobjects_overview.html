@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript OOP Example</title>
+</head>
+<body>
+    <h2>JavaScript Object-Oriented Programming (OOP) Example</h2>
+
+    <script>
+        // Using Object Literal to Create a Person
+        const person = {
+            name: "John",
+            age: 30,
+            greet: function() {
+                console.log(`Hello, my name is ${this.name}.`);
+            }
+        };
+
+        // Example of creating a student from person (Inheritance)
+        const student = Object.create(person);
+        student.name = "Alice";
+        student.age = 20;
+        student.study = function() {
+            console.log(`${this.name} is studying.`);
+        };
+
+        console.log("Person:");
+        person.greet();  // Output: Hello, my name is John.
+
+        console.log("Student:");
+        student.greet(); // Output: Hello, my name is Alice.
+        student.study(); // Output: Alice is studying.
+
+        // ----------------------------------------------------
+
+        // Using Classes for Object-Oriented Programming
+
+        // Define a Person class
+        class PersonClass {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            greet() {
+                console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+            }
+        }
+
+        // Define a Student class that extends PersonClass
+        class Student extends PersonClass {
+            constructor(name, age, school) {
+                super(name, age);  // Call the parent constructor
+                this.school = school;
+            }
+
+            study() {
+                console.log(`${this.name} is studying at ${this.school}.`);
+            }
+        }
+
+        // Create a new student object
+        const student1 = new Student("Eve", 22, "XYZ University");
+
+        console.log("Student1 (using Class):");
+        student1.greet();  // Output: Hello, my name is Eve and I am 22 years old.
+        student1.study();  // Output: Eve is studying at XYZ University.
+    </script>
+</body>
+</html>

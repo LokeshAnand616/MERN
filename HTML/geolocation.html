@@ -24,8 +24,10 @@
         });
 
         function setLocation(position){
-            lat.innerText = position.coords.latitude;       
-            alt.innerText = position.coords.altitude;
+            lat.innerText = position.coords.latitude;
+            console.log(position.coords.altitude);
+                   
+            alt.innerText = position.coords.longitude;
             acc.innerText = position.coords.accuracy;
         }
 
