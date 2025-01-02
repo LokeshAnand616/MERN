@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript OOP Example</title>
+</head>
+<body>
+  <h1>Object-Oriented Programming in JavaScript</h1>
+
+  <script>
+    // Base Person class
+    class Person {
+      name;
+
+      constructor(name) {
+        this.name = name;
+      }
+
+      introduceSelf() {
+        console.log(`Hi! I'm ${this.name}`);
+      }
+    }
+
+    // Professor class extends Person
+    class Professor extends Person {
+      teaches;
+
+      constructor(name, teaches) {
+        super(name);  // Call the parent constructor
+        this.teaches = teaches;
+      }
+
+      introduceSelf() {
+        console.log(`My name is ${this.name}, and I will be your ${this.teaches} professor.`);
+      }
+
+      grade(paper) {
+        const grade = Math.floor(Math.random() * (5 - 1) + 1);  // Random grade
+        console.log(`The grade for your paper is: ${grade}`);
+      }
+    }
+
+    // Student class extends Person with private year property
+    class Student extends Person {
+      #year;  // Private property
+
+      constructor(name, year) {
+        super(name);  // Parent constructor
+        this.#year = year;
+      }
+
+      introduceSelf() {
+        console.log(`Hi! I'm ${this.name}, and I'm in year ${this.#year}.`);
+      }
+
+      canStudyArchery() {
+        return this.#year > 1;
+      }
+    }
+
+    // Instantiate objects
+    const professor = new Professor("Dr. Smith", "Mathematics");
+    professor.introduceSelf();  // Output: 'My name is Dr. Smith, and I will be your Mathematics professor.'
+    professor.grade("calculus exam");  // Output: 'The grade for your paper is: <random grade>'
+
+    const student = new Student("John", 2);
+    student.introduceSelf();  // Output: 'Hi! I'm John, and I'm in year 2.'
+    console.log(student.canStudyArchery());  // Output: true
+
+    // Try accessing private property directly (will result in error)
+    // student.#year;  // SyntaxError: Private field '#year' must be declared in an enclosing class
+  </script>
+
+</body>
+</html>

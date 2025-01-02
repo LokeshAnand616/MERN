@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Async Program</title>
+</head>
+<body>
+    <h1>Simple Asynchronous Example</h1>
+    <button id="startButton">Start Task</button>
+    <p id="status">Status: Waiting...</p>
+
+    <script>
+        // A simple function that returns a promise
+        function fetchData() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const success = true; // Change this to `false` to simulate an error
+                    if (success) {
+                        resolve("Data fetched successfully!");
+                    } else {
+                        reject("Failed to fetch data.");
+                    }
+                }, 2000); // Simulate a 2-second delay
+            });
+        }
+
+        // Event listener to handle the button click
+        document.getElementById('startButton').addEventListener('click', function() {
+            // Update status
+            document.getElementById('status').textContent = "Status: Fetching data...";
+
+            // Call the asynchronous function
+            fetchData()
+                .then((message) => {
+                    // Success case: Update status with the success message
+                    document.getElementById('status').textContent = `Status: ${message}`;
+                })
+                .catch((error) => {
+                    // Error case: Update status with the error message
+                    document.getElementById('status').textContent = `Status: ${error}`;
+                });
+        });
+    </script>
+</body>
+</html>

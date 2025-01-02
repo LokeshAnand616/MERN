@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book List</title>
+</head>
+<body>
+  <h1>Book List</h1>
+  <section id="bookList"></section>
+
+  <script>
+    async function fetchBooks() {
+      // Simulate fetching JSON data (you can replace with a real URL or fetch from local storage)
+      const jsonData = `
+      {
+        "books": [
+          {
+            "title": "The Great Gatsby",
+            "author": "F. Scott Fitzgerald",
+            "year": 1925
+          },
+          {
+            "title": "To Kill a Mockingbird",
+            "author": "Harper Lee",
+            "year": 1960
+          },
+          {
+            "title": "1984",
+            "author": "George Orwell",
+            "year": 1949
+          }
+        ]
+      }`;
+
+      // Parsing JSON string to JavaScript object
+      const data = JSON.parse(jsonData);
+
+      // Populate the list with books
+      displayBooks(data);
+    }
+
+    function displayBooks(data) {
+      const section = document.getElementById("bookList");
+
+      data.books.forEach(book => {
+        const bookItem = document.createElement("article");
+
+        const title = document.createElement("h2");
+        title.textContent = book.title;
+
+        const author = document.createElement("p");
+        author.textContent = `Author: ${book.author}`;
+
+        const year = document.createElement("p");
+        year.textContent = `Year: ${book.year}`;
+
+        // Append elements to the book item
+        bookItem.appendChild(title);
+        bookItem.appendChild(author);
+        bookItem.appendChild(year);
+
+        // Append book item to the section
+        section.appendChild(bookItem);
+      });
+    }
+
+    // Call the function to fetch and display books
+    fetchBooks();
+  </script>
+</body>
+</html>
