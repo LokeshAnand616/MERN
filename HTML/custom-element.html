@@ -9,14 +9,14 @@
   <user-info></user-info>
 
   <script>
-    class UserInfo extends HTMLElement {
+    class UserInfo extends HTMLElement{
       constructor() {
         super();
         this._data = null;
         this._interval = null;  
       }
 
-      connectedCallback() {
+      connectedCallback(){
         console.log('UserInfo custom element connected');
         this.innerHTML = '<p>Loading user info...</p>';
         

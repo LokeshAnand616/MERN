@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynchronous JavaScript Example</title>
+</head>
+<body>
+
+<h1>Asynchronous JavaScript Concepts</h1>
+
+<!-- Section 1: Synchronous Programming -->
+<h2>Synchronous Programming</h2>
+<button id="syncStartBtn">Start Synchronous Task</button>
+<p id="syncStatus">Status: Ready to start</p>
+
+<!-- Section 2: Long-Running Synchronous Task -->
+<h2>Problem with Long-Running Synchronous Functions</h2>
+<button id="longSyncBtn">Start Long Synchronous Task</button>
+<p id="longSyncStatus">Status: Ready to start</p>
+
+<!-- Section 3: Asynchronous Programming -->
+<h2>Asynchronous Programming</h2>
+<button id="asyncStartBtn">Start Asynchronous Task</button>
+<p id="asyncStatus">Status: Ready to start</p>
+
+<!-- Section 4: Event Handlers -->
+<h2>Event Handler Example</h2>
+<button id="loadDataBtn">Load Data</button>
+<p id="eventStatus">Status: Ready to load data</p>
+
+<!-- Section 5: Callback Example -->
+<h2>Callback Example</h2>
+<button id="callbackBtn">Start Task with Callback</button>
+<p id="callbackStatus">Status: Ready to start</p>
+
+<!-- Section 6: Callback Hell -->
+<h2>Callback Hell Example</h2>
+<button id="callbackHellBtn">Start Task with Nested Callbacks</button>
+<p id="callbackHellStatus">Status: Ready to start</p>
+
+<script>
+    // Synchronous Programming Example
+    document.querySelector("#syncStartBtn").addEventListener("click", () => {
+        document.querySelector("#syncStatus").textContent = "Status: Task starting...";
+        
+        let result = 0;
+        for (let i = 0; i < 1000000000; i++) {
+            result += i;  // Time-consuming synchronous task
+        }
+        
+        document.querySelector("#syncStatus").textContent = "Status: Task completed!";
+    });
+
+    // Long-Running Synchronous Task (Blocking the UI)
+    document.querySelector("#longSyncBtn").addEventListener("click", () => {
+        document.querySelector("#longSyncStatus").textContent = "Status: Task starting...";
+        
+        for (let i = 0; i < 1000000000; i++) {
+            // Simulating a long-running synchronous task
+        }
+        
+        document.querySelector("#longSyncStatus").textContent = "Status: Task completed!";
+    });
+
+    // Asynchronous Programming Example
+    document.querySelector("#asyncStartBtn").addEventListener("click", () => {
+        document.querySelector("#asyncStatus").textContent = "Status: Task started...";
+
+        setTimeout(() => {
+            document.querySelector("#asyncStatus").textContent = "Status: Task completed!";
+        }, 5000);  // Simulating an asynchronous task with a 5-second delay
+    });
+
+    // Event Handler Example (Simulating Data Load)
+    document.querySelector("#loadDataBtn").addEventListener("click", () => {
+        document.querySelector("#eventStatus").textContent = "Status: Loading data...";
+
+        setTimeout(() => {
+            document.querySelector("#eventStatus").textContent = "Status: Data loaded!";
+        }, 3000);  // Simulating data load delay
+    });
+
+    // Callback Example
+    function longTask(callback) {
+        setTimeout(() => {
+            callback();  // Execute callback after 2 seconds
+        }, 2000);
+    }
+
+    document.querySelector("#callbackBtn").addEventListener("click", () => {
+        document.querySelector("#callbackStatus").textContent = "Status: Task started...";
+
+        longTask(() => {
+            document.querySelector("#callbackStatus").textContent = "Status: Task completed (callback)!";
+        });
+    });
+
+    // Callback Hell Example (Nested Callbacks)
+    function step1(init, callback) {
+        setTimeout(() => {
+            const result = init + 1;
+            callback(result);
+        }, 1000);
+    }
+
+    function step2(init, callback) {
+        setTimeout(() => {
+            const result = init + 2;
+            callback(result);
+        }, 1000);
+    }
+
+    function step3(init, callback) {
+        setTimeout(() => {
+            const result = init + 3;
+            callback(result);
+        }, 1000);
+    }
+
+    document.querySelector("#callbackHellBtn").addEventListener("click", () => {
+        document.querySelector("#callbackHellStatus").textContent = "Status: Task started...";
+
+        // Nested callbacks (callback hell)
+        step1(0, (result1) => {
+            step2(result1, (result2) => {
+                step3(result2, (result3) => {
+                    document.querySelector("#callbackHellStatus").textContent = `Status: Task completed with result ${result3}!`;
+                });
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

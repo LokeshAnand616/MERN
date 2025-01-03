@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynchronous JavaScript Example</title>
+</head>
+<body>
+
+<h1>Asynchronous JavaScript Concepts</h1>
+
+<!-- Simulated fetch button -->
+<button id="fetchDataBtn">Fetch Data</button>
+<p id="fetchDataStatus">Click the button to simulate fetching data...</p>
+
+<!-- Simulated Worker button -->
+<button id="startWorkerBtn">Start Worker</button>
+<p id="workerStatus">Click the button to start a worker task...</p>
+
+<!-- Displaying results -->
+<p id="result"></p>
+
+<script>
+// Simulated async function using Promise
+function simulateFetchData() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const success = true; // You can toggle this to simulate success or failure
+            if (success) {
+                resolve("Data fetched successfully!");
+            } else {
+                reject("Failed to fetch data.");
+            }
+        }, 2000); // Simulating a 2-second delay
+    });
+}
+
+// Handle fetch data asynchronously using async/await
+document.querySelector("#fetchDataBtn").addEventListener("click", async () => {
+    document.querySelector("#fetchDataStatus").textContent = "Status: Fetching data...";
+
+    try {
+        const result = await simulateFetchData();
+        document.querySelector("#fetchDataStatus").textContent = result;
+    } catch (error) {
+        document.querySelector("#fetchDataStatus").textContent = error;
+    }
+});
+
+// Web Worker example: Long-running task offloaded to a worker
+const workerCode = `
+    onmessage = function() {
+        let count = 0;
+        while(count < 1000000000) { // Simulate a heavy task
+            count++;
+        }
+        postMessage("Worker task completed!");
+    }
+`;
+
+document.querySelector("#startWorkerBtn").addEventListener("click", () => {
+    document.querySelector("#workerStatus").textContent = "Status: Worker started...";
+
+    const workerBlob = new Blob([workerCode], { type: 'application/javascript' });
+    const worker = new Worker(URL.createObjectURL(workerBlob));
+
+    worker.onmessage = function(event) {
+        document.querySelector("#workerStatus").textContent = event.data;
+    };
+
+    worker.onerror = function(error) {
+        document.querySelector("#workerStatus").textContent = "Worker error: " + error.message;
+    };
+});
+</script>
+
+</body>
+</html>

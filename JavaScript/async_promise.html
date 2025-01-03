@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promises Example</title>
+</head>
+<body>
+  <h1>Async JavaScript Example</h1>
+  <!-- This div will display the product name once it is fetched -->
+  <div id="product-list">
+    <p>Loading product...</p>
+  </div>
+
+  <script>
+    // Step 1: Define an asynchronous function to fetch the product data
+    async function fetchProduct() {
+      // The URL to fetch the product data
+      const url = "https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json";
+
+      try {
+        // Step 2: Use fetch to get the response from the URL
+        const response = await fetch(url);
+
+        // Step 3: Check if the response is successful (status 200)
+        if (!response.ok) {
+          // If the response is not OK, throw an error
+          throw new Error('Failed to fetch products.');
+        }
+
+        // Step 4: Parse the response as JSON
+        const data = await response.json();
+
+        // Step 5: Once the data is successfully fetched and parsed, display the first product's name
+        document.getElementById("product-list").innerHTML = `<p>First product: ${data[0].name}</p>`;
+      } catch (error) {
+        // Step 6: If any error occurs (e.g., network issues or bad URL), display the error message
+        document.getElementById("product-list").innerHTML = `<p>Error: ${error.message}</p>`;
+      }
+    }
+
+    // Step 7: Call the fetchProduct function to load the product data when the page is ready
+    fetchProduct();
+  </script>
+</body>
+</html>
