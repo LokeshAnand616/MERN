@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template Literals in JavaScript</title>
+</head>
+<body>
+  <h1>Template Literals in JavaScript</h1>
+  <p>Check the console for the output of various template literal examples!</p>
+  
+  <script>
+    // 1. **Basic String Interpolation**
+    const name = "Alice";
+    const greeting = `Hello, ${name}!`;  // Embed variable inside the string
+    console.log(greeting);  // Output: Hello, Alice!
+
+    // 2. **Expression Substitution**
+    const a = 5, b = 10;
+    const sum = `The sum of ${a} and ${b} is ${a + b}.`;
+    console.log(sum);  // Output: The sum of 5 and 10 is 15.
+
+    // 3. **Multi-line String**
+    const multilineString = `
+      This is a string
+      that spans multiple lines.
+      No need for escape characters.
+    `;
+    console.log(multilineString);
+    // Output:
+    // This is a string
+    // that spans multiple lines.
+    // No need for escape characters.
+
+    // 4. **Calling Functions Inside Template Literals**
+    const square = x => x * x;
+    const result = `The square of 5 is ${square(5)}.`;
+    console.log(result);  // Output: The square of 5 is 25.
+
+    // 5. **Dynamic Expressions Inside Template Literals**
+    const currentYear = 2025;
+    const birthYear = 1995;
+    const age = `I am ${currentYear - birthYear} years old.`;
+    console.log(age);  // Output: I am 30 years old.
+
+    // 6. **Nesting Template Literals**
+    const outer = `This is the outer template literal with an embedded ${`inner template literal`}.`;
+    console.log(outer);  // Output: This is the outer template literal with an embedded inner template literal.
+  </script>
+
+</body>
+</html>

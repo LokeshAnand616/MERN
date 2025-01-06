@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workout Tracker</title>
+</head>
+<body>
+
+  <h1>Check the Console for Workout Tracker Output</h1>
+  
+  <script>
+    // Define a constant object to represent a workout routine
+    const workout = {
+      day: "Monday",
+      exercises: ["push-ups", "sit-ups", "squats"],
+      duration: 30 // in minutes
+    };
+
+    // Log the initial workout
+    console.log(`Workout on ${workout.day}:`);
+    console.log(`Exercises: ${workout.exercises.join(", ")}`);
+    console.log(`Duration: ${workout.duration} minutes`);
+
+    // We can modify the properties of the object
+    workout.duration = 45;  // Update the duration
+    workout.exercises.push("burpees");  // Add new exercise
+
+    // Log the updated workout
+    console.log("\nUpdated workout:");
+    console.log(`Exercises: ${workout.exercises.join(", ")}`);
+    console.log(`Duration: ${workout.duration} minutes`);
+
+    // Attempting to reassign the object itself would cause an error
+    // workout = { day: "Tuesday", exercises: ["jogging"], duration: 20 }; // Error: Assignment to constant variable.
+  </script>
+
+</body>
+</html>

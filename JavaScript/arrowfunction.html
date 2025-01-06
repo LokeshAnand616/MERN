@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrow Function Examples</title>
+</head>
+<body>
+  <h1>Arrow Functions in JavaScript</h1>
+  <p>Check the console for various arrow function examples!</p>
+  
+  <script>
+    // 1. **Basic Arrow Function**
+    const greet = name => `Hello, ${name}!`;
+    console.log(greet("Alice")); // Output: Hello, Alice!
+
+    // 2. **Arrow Function with Multiple Parameters**
+    const add = (a, b) => a + b;
+    console.log(add(5, 3)); // Output: 8
+
+    // 3. **Arrow Function with Multiple Statements**
+    const multiply = (a, b) => {
+      const result = a * b;
+      return result;
+    };
+    console.log(multiply(4, 5)); // Output: 20
+
+    // 4. **Arrow Function with No Parameters**
+    const sayHello = () => "Hello, World!";
+    console.log(sayHello()); // Output: Hello, World!
+
+    // 5. **Arrow Function and Lexical 'this' Binding**
+    function Timer() {
+      this.seconds = 0;
+      setInterval(() => {
+        this.seconds++;  // 'this' refers to Timer object due to lexical binding
+        console.log(this.seconds);
+      }, 1000);
+    }
+    const timer = new Timer();  // Output: 1, 2, 3, 4, ...
+
+    // 6. **Arrow Function and 'arguments'**
+    function showArguments() {
+      const arrowFunc = () => {
+        console.log(arguments);  // Refers to arguments of the outer function
+      };
+      arrowFunc(10, 20);  // Shows arguments of showArguments(), not arrowFunc()
+    }
+    showArguments(1, 2, 3);  // Output: [1, 2, 3]
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scoping in ES6</title>
+</head>
+<body>
+  <h1>Scoping in ES6 Explained</h1>
+  <p>Check the console for the output of various scoping examples in ES6.</p>
+  
+  <script>
+    // 1. **Global Scope Example**
+    let globalVar = "I am globally scoped";
+    function printGlobalVar() {
+      console.log(globalVar); // "I am globally scoped"
+    }
+    printGlobalVar();
+    console.log(globalVar); // "I am globally scoped"
+
+    // 2. **Function Scope with 'var'**
+    function testVar() {
+      var x = 10;
+      console.log(x); // 10 (accessible inside the function)
+    }
+    testVar();
+    try {
+      console.log(x); // ReferenceError: x is not defined
+    } catch (e) {
+      console.log(e.message); // Error message for accessing x outside function
+    }
+
+    // 3. **Block Scope with 'let' and 'const'**
+    if (true) {
+      let blockVar = "I'm block scoped!";
+      const blockConst = "I'm also block scoped!";
+      console.log(blockVar); // "I'm block scoped!"
+      console.log(blockConst); // "I'm also block scoped!"
+    }
+    try {
+      console.log(blockVar); // ReferenceError: blockVar is not defined
+      console.log(blockConst); // ReferenceError: blockConst is not defined
+    } catch (e) {
+      console.log(e.message); // Error message for accessing outside the block
+    }
+
+    // 4. **var vs let - Example**
+    function varVsLet() {
+      if (true) {
+        var a = 10;  // 'var' is function-scoped
+        let b = 20;  // 'let' is block-scoped
+      }
+      console.log(a); // 10 (accessible because 'var' is function-scoped)
+      try {
+        console.log(b); // ReferenceError: b is not defined
+      } catch (e) {
+        console.log(e.message); // Error message for accessing 'let' outside block
+      }
+    }
+    varVsLet();
+
+    // 5. **Hoisting with 'var' and 'let'**
+    console.log(varHoisted); // undefined (hoisted with 'var')
+    var varHoisted = "This is hoisted";
+    try {
+      console.log(letHoisted); // ReferenceError: Cannot access 'letHoisted' before initialization
+      let letHoisted = "This is hoisted with 'let'";
+    } catch (e) {
+      console.log(e.message); // Error message for accessing 'let' before declaration
+    }
+
+    // 6. **Lexical Scope and Closures Example**
+    function outer() {
+      let outerVar = "I am outside!";
+      function inner() {
+        console.log(outerVar); // "I am outside!"
+      }
+      inner();
+    }
+    outer();
+
+    // 7. **'const' for Block-Scoped Constants**
+    const pi = 3.14159;
+    console.log(pi); // 3.14159
+    try {
+      pi = 3.14; // Error: Assignment to constant variable
+    } catch (e) {
+      console.log(e.message); // Error message for reassignment of 'const'
+    }
+  </script>
+
+</body>
+</html>
