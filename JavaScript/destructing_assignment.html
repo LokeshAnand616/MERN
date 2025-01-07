@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring Assignment Demo</title>
+</head>
+<body>
+    <h1>Destructuring Assignment Examples</h1>
+
+    <script>
+        // Example 1: Object Destructuring
+        const person = {
+            name: 'Alice',
+            age: 25,
+            job: 'Developer',
+            city: 'New York'
+        };
+
+        // Destructuring object properties into variables
+        const { name, age, job } = person;
+
+        console.log(name);  // Output: Alice
+        console.log(age);   // Output: 25
+        console.log(job);   // Output: Developer
+
+        // Example 2: Object Destructuring with Renaming
+        const { name: personName, city: personCity } = person;
+        
+        console.log(personName); // Output: Alice
+        console.log(personCity); // Output: New York
+
+        // Example 3: Setting Default Values in Destructuring
+        const { name: firstName, country = 'USA' } = person;
+
+        console.log(firstName); // Output: Alice
+        console.log(country);   // Output: USA (default value as "country" does not exist in the object)
+
+        // Example 4: Array Destructuring
+        const coordinates = [10, 20, 30];
+
+        // Destructuring array elements into variables
+        const [x, y, z] = coordinates;
+
+        console.log(x); // Output: 10
+        console.log(y); // Output: 20
+        console.log(z); // Output: 30
+
+        // Example 5: Skipping Elements in Array Destructuring
+        const [first, , third] = coordinates;
+
+        console.log(first);  // Output: 10
+        console.log(third);  // Output: 30 (skipping the second element)
+
+        // Example 6: Using Rest Syntax with Destructuring
+        const [a, b, ...rest] = coordinates;
+
+        console.log(a);   // Output: 10
+        console.log(b);   // Output: 20
+        console.log(rest); // Output: [30] (rest of the array)
+
+        // Example 7: Nested Destructuring (Objects inside Arrays)
+        const user = {
+            name: 'Bob',
+            address: {
+                city: 'Los Angeles',
+                zip: '90001'
+            }
+        };
+
+        // Destructuring nested object
+        const { name: userName, address: { city, zip } } = user;
+
+        console.log(userName); // Output: Bob
+        console.log(city);     // Output: Los Angeles
+        console.log(zip);      // Output: 90001
+    </script>
+</body>
+</html>

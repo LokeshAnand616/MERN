@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 Parameter Handling Demo</title>
+</head>
+<body>
+    <h1>ES6 Parameter Handling Examples</h1>
+
+    <script>
+        // Default Parameters
+        function greet(name = 'Guest') {
+            console.log(`Hello, ${name}!`);
+        }
+
+        greet('Alice'); // Output: Hello, Alice!
+        greet(); // Output: Hello, Guest!
+
+        // Rest Parameters
+        function sum(...numbers) {
+            return numbers.reduce((total, num) => total + num, 0);
+        }
+
+        console.log(sum(1, 2, 3)); // Output: 6
+        console.log(sum(4, 5, 6, 7)); // Output: 22
+
+        // Spread Syntax
+        const arr = [1, 2, 3];
+        const newArr = [...arr, 4, 5]; // Spread the array into a new array
+
+        console.log(newArr); // Output: [1, 2, 3, 4, 5]
+
+        // Using spread syntax in function calls
+        function multiply(x, y, z) {
+            return x * y * z;
+        }
+
+        const numbers = [2, 3, 4];
+        console.log(multiply(...numbers)); // Output: 24
+
+        // Rest + Default Parameters combined
+        function greet(message = 'Hello', ...names) {
+            names.forEach(name => {
+                console.log(`${message}, ${name}!`);
+            });
+        }
+
+        greet('Hi', 'Alice', 'Bob', 'Charlie');
+        // Output:
+        // Hi, Alice!
+        // Hi, Bob!
+        // Hi, Charlie!
+
+        // Destructuring in Parameters (Object)
+        function printPerson({ name, age }) {
+            console.log(`Name: ${name}, Age: ${age}`);
+        }
+
+        const person = { name: 'Alice', age: 25 };
+        printPerson(person); // Output: Name: Alice, Age: 25
+
+        // Destructuring in Parameters (Array)
+        function printCoordinates([x, y]) {
+            console.log(`X: ${x}, Y: ${y}`);
+        }
+
+        const coordinates = [10, 20];
+        printCoordinates(coordinates); // Output: X: 10, Y: 20
+    </script>
+</body>
+</html>

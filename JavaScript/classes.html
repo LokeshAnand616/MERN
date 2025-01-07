@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ES6 Car Class Example</title>
+</head>
+<body>
+
+  <h1>Car Information</h1>
+  <p id="carInfo">Click the button to start the car.</p>
+  <button id="startButton">Start the Car</button>
+
+  <script>
+    // Define the Car class using ES6 class syntax
+    class Car {
+      constructor(make, model, speed) {
+        this.make = make;
+        this.model = model;
+        this.speed = speed;
+      }
+
+      // Method to start the car and show speed
+      start() {
+        return `The ${this.make} ${this.model} is now going at ${this.speed} km/h.`;
+      }
+
+      // Method to increase the car's speed
+      accelerate() {
+        this.speed += 10;
+      }
+
+      // Method to stop the car
+      stop() {
+        this.speed = 0;
+      }
+    }
+
+    // Create a car instance
+    const myCar = new Car('Toyota', 'Corolla', 0);
+
+    // Select the HTML elements
+    const carInfoElement = document.getElementById('carInfo');
+    const startButton = document.getElementById('startButton');
+
+    // Event listener for the button to start the car
+    startButton.addEventListener('click', () => {
+      myCar.accelerate(); // Increase speed by 10
+      carInfoElement.textContent = myCar.start();
+    });
+  </script>
+
+</body>
+</html>
