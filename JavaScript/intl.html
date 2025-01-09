@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intl API Example</title>
+</head>
+<body>
+  <h1>Internationalization (Intl) Example</h1>
+  
+  <p id="formatted-date"></p>
+  <p id="formatted-number"></p>
+  <p id="locale-info"></p>
+
+  <script>
+    // Sample data
+    const count = 26254.39;  // A sample number to format
+    const date = new Date("2012-05-24");  // A sample date to format
+
+    // Function to log formatted date and number
+    function log(locale) {
+      const formattedDate = new Intl.DateTimeFormat(locale).format(date);  // Format date
+      const formattedCount = new Intl.NumberFormat(locale).format(count);  // Format number
+
+      console.log(`${formattedDate} ${formattedCount}`);  // Log to console
+    }
+
+    // Formatting with different locales
+    log("en-US"); // US English (Month/Day/Year)
+    log("de-DE"); // German (Day.Month.Year)
+    log("ja-JP"); // Japanese (Year.Month.Day)
+
+    // Using the browser's preferred language
+    const userLocale = navigator.language; // Gets the user's preferred language
+    const formattedDateForUser = new Intl.DateTimeFormat(userLocale).format(date);
+    const formattedNumberForUser = new Intl.NumberFormat(userLocale).format(count);
+
+    // Display the formatted values in HTML
+    document.getElementById('formatted-date').textContent = `Formatted Date (user's locale: ${userLocale}): ${formattedDateForUser}`;
+    document.getElementById('formatted-number').textContent = `Formatted Number (user's locale: ${userLocale}): ${formattedNumberForUser}`;
+    document.getElementById('locale-info').textContent = `User's Locale: ${userLocale}`;
+  </script>
+</body>
+</html>
