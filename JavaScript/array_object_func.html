@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Advanced Concepts</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    .code-section {
+      margin-bottom: 30px;
+    }
+    .btn {
+      background-color: #3498db;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .btn:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript Advanced Concepts</h1>
+
+  <!-- Arrays Section -->
+  <div class="code-section">
+    <h2>1. Arrays</h2>
+    <p>Explore advanced concepts of Arrays like `map()`, `filter()`, and `reduce()`.</p>
+
+    <button class="btn" onclick="showArrayExample()">Show Arrays Example</button>
+    <p id="array-example-output"></p>
+    <pre id="array-example" style="display:none;">
+const numbers = [1, 2, 3, 4, 5];
+
+// Using map() to square each number
+const squaredNumbers = numbers.map(num => num * num);
+
+// Using filter() to get even numbers
+const evenNumbers = numbers.filter(num => num % 2 === 0);
+
+// Using reduce() to sum all numbers
+const sum = numbers.reduce((acc, num) => acc + num, 0);
+
+console.log('Squared Numbers:', squaredNumbers); // [1, 4, 9, 16, 25]
+console.log('Even Numbers:', evenNumbers); // [2, 4]
+console.log('Sum:', sum); // 15
+    </pre>
+  </div>
+
+  <!-- Objects Section -->
+  <div class="code-section">
+    <h2>2. Objects</h2>
+    <p>Learn about advanced object handling like destructuring and object spread.</p>
+
+    <button class="btn" onclick="showObjectExample()">Show Objects Example</button>
+    <p id="object-example-output"></p>
+    <pre id="object-example" style="display:none;">
+const person = {
+  name: 'John Doe',
+  age: 30,
+  address: {
+    street: '123 Main St',
+    city: 'New York',
+  }
+};
+
+// Object destructuring
+const { name, age, address: { city } } = person;
+
+// Object spread to create a new object
+const updatedPerson = { ...person, age: 31 };
+
+console.log('Destructured Name:', name); // John Doe
+console.log('City:', city); // New York
+console.log('Updated Person:', updatedPerson); // { name: 'John Doe', age: 31, address: { street: '123 Main St', city: 'New York' } }
+    </pre>
+  </div>
+
+  <!-- Functions Section -->
+  <div class="code-section">
+    <h2>3. Functions</h2>
+    <p>Explore advanced function concepts like arrow functions and higher-order functions.</p>
+
+    <button class="btn" onclick="showFunctionExample()">Show Functions Example</button>
+    <p id="function-example-output"></p>
+    <pre id="function-example" style="display:none;">
+// Arrow function
+const greet = name => `Hello, ${name}!`;
+
+// Higher-order function: takes a function as an argument
+const repeatGreeting = (greetingFunction, name) => {
+  return `${greetingFunction(name)} ${greetingFunction(name)}`;
+};
+
+console.log(greet('Alice')); // Hello, Alice!
+console.log(repeatGreeting(greet, 'Bob')); // Hello, Bob! Hello, Bob!
+    </pre>
+  </div>
+
+  <!-- Promises and Async/Await Section -->
+  <div class="code-section">
+    <h2>4. Promises and Async/Await</h2>
+    <p>Learn about handling asynchronous operations using promises and async/await syntax.</p>
+
+    <button class="btn" onclick="showPromiseExample()">Show Promise Example</button>
+    <p id="promise-example-output"></p>
+    <pre id="promise-example" style="display:none;">
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Data fetched successfully!');
+    }, 2000);
+  });
+}
+
+async function getData() {
+  try {
+    const result = await fetchData();
+    console.log(result); // Data fetched successfully!
+  } catch (error) {
+    console.log('Error:', error);
+  }
+}
+
+getData();
+    </pre>
+  </div>
+
+  <!-- Classes and Inheritance Section -->
+  <div class="code-section">
+    <h2>5. Classes and Inheritance</h2>
+    <p>Learn about creating classes and inheritance in JavaScript.</p>
+
+    <button class="btn" onclick="showClassExample()">Show Class Example</button>
+    <p id="class-example-output"></p>
+    <pre id="class-example" style="display:none;">
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(`${this.name} makes a sound`);
+  }
+}
+
+class Dog extends Animal {
+  speak() {
+    console.log(`${this.name} barks`);
+  }
+}
+
+const dog = new Dog('Rex');
+dog.speak(); // Rex barks
+    </pre>
+  </div>
+
+  <!-- Set and Map Section -->
+  <div class="code-section">
+    <h2>6. Set and Map</h2>
+    <p>Learn about the Set and Map data structures in JavaScript.</p>
+
+    <button class="btn" onclick="showSetMapExample()">Show Set and Map Example</button>
+    <p id="set-map-example-output"></p>
+    <pre id="set-map-example" style="display:none;">
+// Set example
+const set = new Set([1, 2, 2, 3, 4]);
+set.add(5);
+
+console.log('Set:', set); // Set {1, 2, 3, 4, 5}
+
+// Map example
+const map = new Map();
+map.set('name', 'Alice');
+map.set('age', 25);
+
+console.log('Map:', map); // Map {'name' => 'Alice', 'age' => 25}
+    </pre>
+  </div>
+
+  <!-- Template Literals and Tagged Templates -->
+  <div class="code-section">
+    <h2>7. Template Literals and Tagged Templates</h2>
+    <p>Learn how to use template literals and tagged templates in JavaScript.</p>
+
+    <button class="btn" onclick="showTemplateLiteralExample()">Show Template Literal Example</button>
+    <p id="template-literal-example-output"></p>
+    <pre id="template-literal-example" style="display:none;">
+// Template literal
+const name = 'Alice';
+const greeting = `Hello, ${name}! How are you today?`;
+
+console.log(greeting); // Hello, Alice! How are you today?
+
+// Tagged template example
+function uppercase(strings, ...values) {
+  const result = strings.reduce((acc, str, index) => {
+    return acc + str + (values[index] ? values[index].toUpperCase() : '');
+  }, '');
+  return result;
+}
+
+const message = uppercase`Hello, ${'Alice'}! How are you ${'today'}?`;
+console.log(message); // Hello, ALICE! How are you TODAY?
+    </pre>
+  </div>
+
+  <script>
+    // Arrays example code and output
+    function showArrayExample() {
+      const numbers = [1, 2, 3, 4, 5];
+
+      // Using map() to square each number
+      const squaredNumbers = numbers.map(num => num * num);
+
+      // Using filter() to get even numbers
+      const evenNumbers = numbers.filter(num => num % 2 === 0);
+
+      // Using reduce() to sum all numbers
+      const sum = numbers.reduce((acc, num) => acc + num, 0);
+
+      document.getElementById('array-example').style.display = 'block';
+      document.getElementById('array-example-output').innerHTML = `
+        <b>Squared Numbers:</b> ${squaredNumbers}<br>
+        <b>Even Numbers:</b> ${evenNumbers}<br>
+        <b>Sum:</b> ${sum}
+      `;
+    }
+
+    // Objects example code and output
+    function showObjectExample() {
+      const person = {
+        name: 'John Doe',
+        age: 30,
+        address: {
+          street: '123 Main St',
+          city: 'New York',
+        }
+      };
+
+      // Object destructuring
+      const { name, age, address: { city } } = person;
+
+      // Object spread to create a new object
+      const updatedPerson = { ...person, age: 31 };
+
+      document.getElementById('object-example').style.display = 'block';
+      document.getElementById('object-example-output').innerHTML = `
+        <b>Destructured Name:</b> ${name}<br>
+        <b>City:</b> ${city}<br>
+        <b>Updated Person:</b> ${JSON.stringify(updatedPerson)}
+      `;
+    }
+
+    // Functions example code and output
+    function showFunctionExample() {
+      // Arrow function
+      const greet = name => `Hello, ${name}!`;
+
+      // Higher-order function
+      const repeatGreeting = (greetingFunction, name) => {
+        return `${greetingFunction(name)} ${greetingFunction(name)}`;
+      };
+
+      document.getElementById('function-example').style.display = 'block';
+      document.getElementById('function-example-output').innerHTML = `
+        <b>Greeting Alice:</b> ${greet('Alice')}<br>
+        <b>Repeat Greeting for Bob:</b> ${repeatGreeting(greet, 'Bob')}
+      `;
+    }
+
+    // Promises and Async/Await example code and output
+    function showPromiseExample() {
+      function fetchData() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve('Data fetched successfully!');
+          }, 2000);
+        });
+      }
+
+      async function getData() {
+        try {
+          const result = await fetchData();
+          console.log(result); // Data fetched successfully!
+        } catch (error) {
+          console.log('Error:', error);
+        }
+      }
+
+      getData();
+    }
+
+    // Classes and Inheritance example code and output
+    function showClassExample() {
+      class Animal {
+        constructor(name) {
+          this.name = name;
+        }
+
+        speak() {
+          console.log(`${this.name} makes a sound`);
+        }
+      }
+
+      class Dog extends Animal {
+        speak() {
+          console.log(`${this.name} barks`);
+        }
+      }
+
+      const dog = new Dog('Rex');
+      dog.speak(); // Rex barks
+    }
+
+    // Set and Map example code and output
+    function showSetMapExample() {
+      const set = new Set([1, 2, 2, 3, 4]);
+      set.add(5);
+      
+      console.log('Set:', set); // Set {1, 2, 3, 4, 5}
+
+      const map = new Map();
+      map.set('name', 'Alice');
+      map.set('age', 25);
+
+      console.log('Map:', map); // Map {'name' => 'Alice', 'age' => 25}
+    }
+
+    // Template Literals and Tagged Templates example code and output
+    function showTemplateLiteralExample() {
+      const name = 'Alice';
+      const greeting = `Hello, ${name}! How are you today?`;
+
+      console.log(greeting); // Hello, Alice! How are you today?
+
+      function uppercase(strings, ...values) {
+        const result = strings.reduce((acc, str, index) => {
+          return acc + str + (values[index] ? values[index].toUpperCase() : '');
+        }, '');
+        return result;
+      }
+
+      const message = uppercase`Hello, ${'Alice'}! How are you ${'today'}?`;
+      console.log(message); // Hello, ALICE! How are you TODAY?
+    }
+  </script>
+</body>
+</html>
