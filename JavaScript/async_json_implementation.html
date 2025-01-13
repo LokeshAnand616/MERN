@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Function and JSON Example</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="text-center mb-4">User Information</h2>
+        <div class="d-flex justify-content-center mb-4">
+            <button class="btn btn-primary" id="fetchButton">Fetch User Data</button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered mt-4" id="userTable">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Username</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody">
+                    <!-- Data will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Sample JSON data
+        const jsonData = [
+            {
+                "name": "lokesh",
+                "email": "lokesh@example.com",
+                "username": "lokesh616",
+                "phone": "555-1234"
+            },
+            {
+                "name": "steve smith",
+                "email": "Steve.smith@example.com",
+                "username": "stevesmith",
+                "phone": "555-5678"
+            },
+            {
+                "name": "randy orton",
+                "email": "randyorton@example.com",
+                "username": "randyrko",
+                "phone": "555-9876"
+            }
+        ];
+
+        // Simulate an asynchronous function that "fetches" user data (using setTimeout to mimic API call delay)
+        async function fetchUserData() {
+            console.log("Fetching user data...");
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(jsonData); // Resolves with the JSON data after a delay
+                }, 2000); // Simulating a 2-second delay
+            });
+        }
+
+        // Function to display the user data in the table
+        function displayUserData(users) {
+            const tableBody = document.getElementById('userTableBody');
+            tableBody.innerHTML = ''; // Clear previous content
+
+            users.forEach(user => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${user.name}</td>
+                    <td>${user.email}</td>
+                    <td>${user.username}</td>
+                    <td>${user.phone}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Handle the button click event
+        document.getElementById('fetchButton').addEventListener('click', async () => {
+            // Disable the button while fetching data
+            const button = document.getElementById('fetchButton');
+            button.disabled = true;
+            button.innerHTML = 'Loading...';
+
+            try {
+                const userData = await fetchUserData(); // Wait for the async function to resolve
+                displayUserData(userData); // Display the data in the table
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+            }
+
+            // Enable the button after data has been fetched
+            button.disabled = false;
+            button.innerHTML = 'Fetch User Data';
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .top-right-buttons {
+            position: fixed;
+            top: 0px;
+            right: 0px;
+            padding: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">ES6</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="../JavaScript/object_array_string.html">Objects, Arrays and Strings</a>
+        </li>
+
+    </ul>
+    <div class="top-right-buttons">
+        <button class="btn btn-secondary" id="back-btn">Back</button>
+        <button class="btn btn-secondary" id="forward-btn">Forward</button>
+    </div>
+
+    <div class="accordion" id="accordionExample">
+        <!-- LET -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    LET
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <ul>
+                        <li>LET variable is block scoped, it can’t be redeclared within the block.</li>
+                        <li>If LET is declared in the top of the script, it won’t create a global property.</li>
+                        <li>It can be redeclared outside the block scope.</li>
+                        <li>We can’t access the variable before it is declared (Temporal Dead Zone).</li>
+                    </ul>
+                    <button type="button" class="btn btn-primary" id="let-btn">Execute LET</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- VAR -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    VAR
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <ul>
+                        <li>VAR is function scoped or globally scoped.</li>
+                        <li>If a variable is declared with VAR, it can be redeclared within the same scope or different
+                            scope.</li>
+                        <li>It can be called before assigning the value to the variable. It doesn’t throw an error, it
+                            shows `undefined` due to hoisting.</li>
+                    </ul>
+                    <button type="button" class="btn btn-primary" id="var-btn">Execute VAR</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONST -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    CONST
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <ul>
+                        <li>CONST is block scoped.</li>
+                        <li>The value of a CONST variable cannot be reassigned after its initial assignment.</li>
+                        <li>However, if the variable is an object or an array, the contents can still be modified, but
+                            the reference to the variable itself cannot be changed.</li>
+                    </ul>
+                    <button type="button" class="btn btn-primary" id="const-btn">Execute CONST</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Arrow Function Section -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseArrowFunction" aria-expanded="false" aria-controls="collapseArrowFunction">
+                    Arrow Function
+                </button>
+            </h2>
+            <div id="collapseArrowFunction" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Arrow functions provide a shorter syntax for writing functions.</li>
+                        <li>Arrow functions do not have their own `this` context; instead, they inherit `this` from the
+                            surrounding scope.</li>
+                        <li>They are particularly useful for callbacks and functions that do not require their own
+                            `this` context.</li>
+                    </ul>
+                    <button type="button" class="btn btn-primary" id="arrow-fn-btn">Execute Arrow Function</button>
+                </div>
+            </div>
+        </div>
+        <!-- Destructuring Assignment -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseDestructuring" aria-expanded="false" aria-controls="collapseDestructuring">
+                    Destructuring Assignment
+                </button>
+            </h2>
+            <div id="collapseDestructuring" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Destructuring allows you to extract values from arrays or properties from objects into
+                            variables.</li>
+                        <li>It works with both arrays and objects.</li>
+                        <li>Destructuring can be used for both assignment and function parameters.</li>
+                        <li>It can be used with default values and nested objects/arrays.</li>
+                    </ul>
+                    <button type="button" class="btn btn-primary" id="destructuring-btn">Execute Destructuring</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+
+        // Handle the Back button
+        document.getElementById('back-btn').addEventListener('click', () => {
+            history.back();  // Go back in the browser history
+        });
+
+        // Handle the Forward button
+        document.getElementById('forward-btn').addEventListener('click', () => {
+            history.forward();  // Go forward in the browser history
+        });
+
+        // Your existing code for managing navigation links:
+        const linkAct = document.querySelectorAll(".nav-link");
+
+        linkAct.forEach(element => {
+            element.addEventListener("click", () => {
+                // Remove the 'active' class from all items
+                linkAct.forEach(item => item.classList.remove('active'));
+
+                // Add the 'active' class to the clicked item
+                element.classList.add('active');
+            });
+        });
+
+
+
+        // LET
+        const letBtn = document.getElementById('let-btn');
+        letBtn.addEventListener('click', () => {
+            let a = 10;
+            if (true) {
+                let a = 5; // block-scoped
+                console.log("Inside block, a = " + a); // Output: 5
+            }
+            console.log("Outside block, a = " + a); // Output: 10
+
+            try {
+                let a = 20;
+                if (a < 25) {
+                    throw new Error("The user age must be above 25");
+                }
+            } catch (error) {
+                console.log("Error: " + error.message); // Output: Error: The user age must be above 25
+            }
+        });
+
+        // VAR
+        const varBtn = document.getElementById('var-btn');
+        varBtn.addEventListener('click', () => {
+            var a = 10;
+            if (true) {
+                var a = 5; // function-scoped or globally-scoped, so re-declared
+                console.log("Inside block, a = " + a); // Output: 5
+            }
+            console.log("Outside block, a = " + a); // Output: 5
+
+            console.log("Before initialization, a = " + a); // Output: undefined due to hoisting
+            var a = 20;
+            console.log("After initialization, a = " + a); // Output: 20
+        });
+
+        // CONST
+        const constBtn = document.getElementById('const-btn');
+        constBtn.addEventListener('click', () => {
+            const a = 10;
+            console.log("a = " + a); // Output: 10
+
+            // Uncommenting below line will throw an error
+            // a = 20; // Error: Assignment to constant variable
+
+            const obj = { key: 'value' };
+            obj.key = 'new value'; // Works because we're modifying the content, not reassigning
+            console.log("Object after modification: ", obj); // Output: { key: 'new value' }
+
+            // Uncommenting the next line will throw an error
+            // obj = { newKey: 'newValue' }; // Error: Assignment to constant variable
+        });
+
+        // Arrow Function Example
+        document.getElementById('arrow-fn-btn').addEventListener('click', () => {
+            // Basic Arrow Function Example:
+            const add = (a, b) => a + b; // This is an arrow function to add two numbers.
+
+            // Using the arrow function to add numbers
+            const result = add(5, 3);
+            console.log(`The result of adding 5 and 3 is: ${result}`); // Outputs: The result of adding 5 and 3 is: 8
+
+            // Arrow function with no parameters:
+            const greet = () => "Hello, world!"; // An arrow function that returns a greeting.
+            console.log(greet()); // Outputs: Hello, world!
+
+            // Arrow function with a single parameter:
+            const square = x => x * x; // Returns the square of the given number.
+            console.log(square(4)); // Outputs: 16
+
+            // Arrow function inheriting 'this' from the surrounding scope:
+            const obj = {
+                name: 'Alice',
+                greet: function () {
+                    setTimeout(() => {
+                        console.log(`Hello, ${this.name}`); // Arrow function uses 'this' from the enclosing 'greet' method
+                    }, 1000);
+                }
+            };
+            obj.greet(); // Outputs: Hello, Alice (after 1 second)
+        });
+
+        // Destructuring Assignment Example
+        document.getElementById('destructuring-btn').addEventListener('click', () => {
+            // Example 1: Array Destructuring
+            const numbers = [10, 20, 30];
+            const [a, b, c] = numbers; // Unpack values from array into variables
+            console.log(`Array Destructuring: a = ${a}, b = ${b}, c = ${c}`); // Outputs: a = 10, b = 20, c = 30
+
+            // Example 2: Object Destructuring
+            const person = { name: 'John', age: 30, location: 'New York' };
+            const { name, age, location } = person; // Unpack properties from object into variables
+            console.log(`Object Destructuring: name = ${name}, age = ${age}, location = ${location}`);
+            // Outputs: name = John, age = 30, location = New York
+
+            // Example 3: Destructuring with Default Values
+            const person2 = { name: 'Jane' }; // Missing 'age' and 'location'
+            //const { name: name2, age = 25, location = 'Unknown' } = person2;  Default values if undefined
+            // console.log(`Destructuring with Default Values: name = ${name2}, age = ${age}, location = ${location}`);
+            // Outputs: name = Jane, age = 25, location = Unknown
+
+            // Example 4: Nested Destructuring
+            const employee = {
+                id: 1,
+                personalInfo: { name: 'Alice', age: 28 },
+                jobInfo: { role: 'Engineer', department: 'Development' }
+            };
+            const { personalInfo: { name: employeeName }, jobInfo: { role } } = employee;
+            console.log(`Nested Destructuring: name = ${employeeName}, role = ${role}`);
+            // Outputs: name = Alice, role = Engineer
+
+            // Example 5: Destructuring in Function Parameters
+            function greet({ name, age }) {
+                console.log(`Hello, ${name}. You are ${age} years old.`);
+            }
+            const user = { name: 'Bob', age: 35 };
+            greet(user); // Outputs: Hello, Bob. You are 35 years old.
+        });
+
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

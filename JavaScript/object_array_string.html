@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JavaScript Methods: Arrays, Objects & Strings</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .top-right-buttons {
+            position: fixed;
+            top: 0px;
+            right: 0px;
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">JavaScript Methods</a>
+        </li>
+
+    </ul>
+    <button class="btn btn-secondary top-right-buttons" id="back-btn">Back</button>
+
+    <div class="accordion" id="accordionExample">
+        <!-- Arrays -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseArrays" aria-expanded="true" aria-controls="collapseArrays">
+                    Arrays Methods
+                </button>
+            </h2>
+            <div id="collapseArrays" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <ul>
+                        <li><b>push()</b>: Adds one or more elements to the end of an array.</li>
+                        <li><b>pop()</b>: Removes the last element of an array.</li>
+                        <li><b>shift()</b>: Removes the first element of an array.</li>
+                        <li><b>unshift()</b>: Adds one or more elements to the beginning of an array.</li>
+                        <li><b>forEach()</b>: Executes a provided function once for each array element.</li>
+                        <li><b>map()</b>: Creates a new array populated with the results of calling a provided function
+                            on every element.</li>
+                        <li><b>filter()</b>: Creates a new array with all elements that pass the test implemented by the
+                            provided function.</li>
+                        <li><b>reduce()</b>: Applies a function against an accumulator and each array element (from left
+                            to right) to reduce it to a single value.</li>
+                        <li><b>concat()</b>: Combines two or more arrays.</li>
+                        <li><b>slice()</b>: Returns a shallow copy of a portion of an array into a new array object.
+                        </li>
+                        <li><b>join()</b>: Joins all elements of an array into a single string.</li>
+                        <li><b>indexOf()</b>: Returns the first index at which a given element can be found.</li>
+                        <li><b>sort()</b>: Sorts the elements of an array in place and returns the sorted array.</li>
+                        <li><b>reverse()</b>: Reverses the elements of an array in place.</li>
+                    </ul>
+                    <button type="button" class="btn btn-primary" id="array-btn">Execute Array Methods</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Objects -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseObjects" aria-expanded="false" aria-controls="collapseObjects">
+                    Objects Methods
+                </button>
+            </h2>
+            <div id="collapseObjects" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <ul>
+                        <li><b>Object.keys()</b>: Returns an array of a given object's own property names.</li>
+                        <li><b>Object.values()</b>: Returns an array of a given object's own enumerable property values.
+                        </li>
+                        <li><b>Object.entries()</b>: Returns an array of a given object's own enumerable property [key,
+                            value] pairs.</li>
+                        <li><b>Object.assign()</b>: Copies all enumerable own properties from one or more source objects
+                            to a target object.</li>
+                        <li><b>hasOwnProperty()</b>: Returns a boolean indicating whether the object has the specified
+                            property as its own (not inherited).</li>
+                        <li><b>Object.freeze()</b>: Freezes an object, preventing new properties from being added, and
+                            makes existing properties read-only.</li>
+                        <li><b>Object.seal()</b>: Seals an object, preventing new properties from being added but allows
+                            existing properties to be modified.</li>
+                        <li><b>Object.getPrototypeOf()</b>: Returns the prototype of a specified object.</li>
+                        <li><b>Object.is()</b>: Determines whether two values are the same value (similar to `===`).
+                        </li>
+                        <li><b>delete</b>: Removes a property from an object.</li>
+                    </ul>
+                    <button type="button" class="btn btn-primary" id="object-btn">Execute Object Methods</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Strings -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseStrings" aria-expanded="false" aria-controls="collapseStrings">
+                    String Methods
+                </button>
+            </h2>
+            <div id="collapseStrings" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <ul>
+                        <li><b>charAt()</b>: Returns the character at a specified index.</li>
+                        <li><b>concat()</b>: Combines two or more strings.</li>
+                        <li><b>includes()</b>: Checks if a string contains a specified substring.</li>
+                        <li><b>slice()</b>: Extracts a part of a string and returns a new string.</li>
+                        <li><b>replace()</b>: Searches for a match in a string and replaces it with another string.</li>
+                        <li><b>toUpperCase()</b>: Converts a string to uppercase letters.</li>
+                        <li><b>toLowerCase()</b>: Converts a string to lowercase letters.</li>
+                        <li><b>indexOf()</b>: Returns the index of the first occurrence of a specified substring.</li>
+                        <li><b>split()</b>: Splits a string into an array of substrings based on a specified separator.
+                        </li>
+                        <li><b>trim()</b>: Removes whitespace from both ends of a string.</li>
+                        <li><b>repeat()</b>: Returns a new string with a specified number of repetitions of the original
+                            string.</li>
+                        <li><b>startsWith()</b>: Checks if a string starts with a given substring.</li>
+                        <li><b>endsWith()</b>: Checks if a string ends with a given substring.</li>
+                    </ul>
+                    <button type="button" class="btn btn-primary" id="string-btn">Execute String Methods</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Handle the Back button
+        document.getElementById('back-btn').addEventListener('click', () => {
+            history.back();  // Go back in the browser history
+        });
+        // Arrays Methods Example
+        document.getElementById('array-btn').addEventListener('click', () => {
+            const arr = [1, 2, 3, 4, 5];
+
+            // Push example
+            arr.push(6); // Adds 6 to the end
+            console.log("After push(6):", arr); // [1, 2, 3, 4, 5, 6]
+
+            // Pop example
+            const popped = arr.pop(); // Removes the last element
+            console.log("After pop():", arr); // [1, 2, 3, 4, 5]
+            console.log("Popped:", popped); // 6
+
+            // Shift example
+            const shifted = arr.shift(); // Removes the first element
+            console.log("After shift():", arr); // [2, 3, 4, 5]
+            console.log("Shifted:", shifted); // 1
+
+            // Unshift example
+            arr.unshift(0); // Adds 0 to the beginning
+            console.log("After unshift(0):", arr); // [0, 2, 3, 4, 5]
+
+            // Map example
+            const doubled = arr.map(num => num * 2);
+            console.log("Mapped (doubled):", doubled); // [0, 4, 6, 8, 10]
+
+            // Filter example
+            const filtered = arr.filter(num => num > 2);
+            console.log("Filtered (> 2):", filtered); // [3, 4, 5]
+
+            // Reduce example
+            const sum = arr.reduce((acc, num) => acc + num, 0);
+            console.log("Reduced (sum):", sum); // 14
+
+            // Concat example
+            const additionalArr = [6, 7, 8];
+            const combinedArr = arr.concat(additionalArr);
+            console.log("Concatenated:", combinedArr); // [0, 2, 3, 4, 5, 6, 7, 8]
+
+            // Slice example
+            const slicedArr = arr.slice(1, 4);
+            console.log("Sliced (1, 4):", slicedArr); // [2, 3, 4]
+
+            // Join example
+            const joinedStr = arr.join('-');
+            console.log("Joined with '-':", joinedStr); // "0-2-3-4-5"
+
+            // IndexOf example
+            console.log("Index of 4:", arr.indexOf(4)); // 3
+
+            // Sort example
+            const sortedArr = arr.sort((a, b) => a - b);
+            console.log("Sorted:", sortedArr); // [0, 2, 3, 4, 5]
+
+            // Reverse example
+            const reversedArr = arr.reverse();
+            console.log("Reversed:", reversedArr); // [5, 4, 3, 2, 0]
+        });
+
+        // Objects Methods Example
+        document.getElementById('object-btn').addEventListener('click', () => {
+            const person = {
+                name: 'Alice',
+                age: 28,
+                city: 'New York'
+            };
+
+            // Object.keys()
+            const keys = Object.keys(person);
+            console.log("Object.keys(person):", keys); // ["name", "age", "city"]
+
+            // Object.values()
+            const values = Object.values(person);
+            console.log("Object.values(person):", values); // ["Alice", 28, "New York"]
+
+            // Object.entries()
+            const entries = Object.entries(person);
+            console.log("Object.entries(person):", entries); // [["name", "Alice"], ["age", 28], ["city", "New York"]]
+
+            // Object.assign()
+            const newPerson = Object.assign({}, person, { city: 'Los Angeles' });
+            console.log("Object.assign():", newPerson); // { name: "Alice", age: 28, city: "Los Angeles" }
+
+            // hasOwnProperty()
+            console.log("person.hasOwnProperty('name'):", person.hasOwnProperty('name')); // true
+            console.log("person.hasOwnProperty('gender'):", person.hasOwnProperty('gender')); // false
+
+            // Object.freeze()
+            const frozenPerson = Object.freeze(person);
+            // frozenPerson.city = 'Chicago'; // This will fail silently in non-strict mode
+            console.log("Frozen object:", frozenPerson); // { name: "Alice", age: 28, city: "New York" }
+
+            // Object.seal()
+            const sealedPerson = Object.seal(person);
+            sealedPerson.city = 'Chicago'; // Allowed to modify existing properties
+            console.log("Sealed object:", sealedPerson); // { name: "Alice", age: 28, city: "Chicago" }
+
+            // Object.getPrototypeOf()
+            const prototype = Object.getPrototypeOf(person);
+            console.log("Prototype of person:", prototype); // {} (the default Object prototype)
+        });
+
+        // String Methods Example
+        document.getElementById('string-btn').addEventListener('click', () => {
+            const str = "Hello, world!";
+
+            // charAt example
+            console.log("charAt(0):", str.charAt(0)); // "H"
+
+            // concat example
+            const greeting = "Good morning, ";
+            const name = "Alice";
+            console.log("concat:", greeting.concat(name)); // "Good morning, Alice"
+
+            // includes example
+            console.log("includes('world'):", str.includes('world')); // true
+            console.log("includes('Goodbye'):", str.includes('Goodbye')); // false
+
+            // slice example
+            console.log("slice(0, 5):", str.slice(0, 5)); // "Hello"
+
+            // replace example
+            console.log("replace('world', 'everyone'):", str.replace('world', 'everyone')); // "Hello, everyone!"
+
+            // toUpperCase example
+            console.log("toUpperCase():", str.toUpperCase()); // "HELLO, WORLD!"
+
+            // toLowerCase example
+            console.log("toLowerCase():", str.toLowerCase()); // "hello, world!"
+
+            // indexOf example
+            console.log("indexOf('world'):", str.indexOf('world')); // 7
+
+            // split example
+            const splitStr = str.split(',');
+            console.log("split(','):", splitStr); // ["Hello", " world!"]
+
+            // trim example
+            const paddedStr = "  Hello, world!  ";
+            console.log("trim():", paddedStr.trim()); // "Hello, world!"
+
+            // repeat example
+            console.log("repeat(3):", str.repeat(3)); // "Hello, world!Hello, world!Hello, world!"
+
+            // startsWith example
+            console.log("startsWith('Hello'):", str.startsWith('Hello')); // true
+
+            // endsWith example
+            console.log("endsWith('world!'):", str.endsWith('world!')); // true
+        });
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
