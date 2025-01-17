@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './App.css';
 import Game from './components/game';
 import Study from './components/study';
+import State from './components/state';
+import Lifecycle from './components/lifeCycle';
 
 function App() {
   const [selectedView, setSelectedView] = useState('');
@@ -47,6 +49,12 @@ function App() {
             <Study subject="Math" difficulty="Easy" />
           ) : null}
         </div>
+      </div>
+      <div>
+        <State/>
+      </div>
+      <div>
+        <Lifecycle/>
       </div>
     </div>
   );
