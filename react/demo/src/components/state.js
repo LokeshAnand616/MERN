@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function state() {
+function statable() {
   // Step 1: State for the message to be displayed
   const [message, setMessage] = useState('Hello, welcome to React!'); // Initial message
   
@@ -56,4 +56,4 @@ function state() {
   );
 }
 
-export default state;
+export default statable;

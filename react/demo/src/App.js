@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import './App.css';
 import Game from './components/game';
 import Study from './components/study';
-import State from './components/state';
+import Statable from './components/statable';
 import Lifecycle from './components/lifeCycle';
+import ExampleRender from './components/rendering_list';
 
 function App() {
   const [selectedView, setSelectedView] = useState('');
@@ -51,10 +52,13 @@ function App() {
         </div>
       </div>
       <div>
-        <State/>
+        <Statable/>
       </div>
       <div>
         <Lifecycle/>
+      </div>
+      <div>
+        <ExampleRender/>
       </div>
     </div>
   );
