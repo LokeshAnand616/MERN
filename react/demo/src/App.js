@@ -5,6 +5,8 @@ import Study from './components/study';
 import Statable from './components/statable';
 import Lifecycle from './components/lifeCycle';
 import ExampleRender from './components/rendering_list';
+import FormPage from './components/forms';
+import ParentComponent from './components/parentComponent';
 
 function App() {
   const [selectedView, setSelectedView] = useState('');
@@ -59,6 +61,12 @@ function App() {
       </div>
       <div>
         <ExampleRender/>
+      </div>
+      <div>
+        <FormPage/>
+      </div>
+      <div>
+        <ParentComponent/>
       </div>
     </div>
   );
