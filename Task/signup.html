@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="form-container" id="sign-up-form">
+            <h2>Sign Up</h2>
+            <form id="signUpForm">
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="signUpName">Full Name:</label>
+                    <input type="text" id="signUpName" name="name" placeholder="Enter your full name">
+                    <span id="signUpNameError" class="error"></span>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="signUpEmail">Email:</label>
+                    <input type="email" id="signUpEmail" name="email" placeholder="Enter your email">
+                    <span id="signUpEmailError" class="error"></span>
+                </div>
+
+                <!-- Gender -->
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" id="genderMale" name="gender" value="male">
+                            Male
+                        </label>
+                        <label>
+                            <input type="radio" id="genderFemale" name="gender" value="female">
+                            Female
+                        </label>
+                    </div>
+                    <span id="genderError" class="error"></span>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="signUpPassword">Password:</label>
+                    <input type="password" id="signUpPassword" name="password" placeholder="Create a password">
+                    <span id="signUpPasswordError" class="error"></span>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+                    <label for="signUpConfirmPassword">Confirm Password:</label>
+                    <input type="password" id="signUpConfirmPassword" name="confirmPassword"
+                        placeholder="Confirm your password">
+                    <span id="signUpConfirmPasswordError" class="error"></span>
+                </div>
+
+                <button type="submit">Sign Up</button>
+                <p>Already have an account? <a href="signin.html">Sign In</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
