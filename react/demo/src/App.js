@@ -4,9 +4,10 @@ import Game from './components/game';
 import Study from './components/study';
 import Statable from './components/statable';
 import Lifecycle from './components/lifeCycle';
-import ExampleRender from './components/rendering_list';
+import RenderingList from './components/rendering_list.js';
 import FormPage from './components/forms';
 import ParentComponent from './components/parentComponent';
+import FilterComponent from './components/FilterComponent.js';
 
 function App() {
   const [selectedView, setSelectedView] = useState('');
@@ -60,13 +61,16 @@ function App() {
         <Lifecycle/>
       </div>
       <div>
-        <ExampleRender/>
+        <RenderingList/>
       </div>
       <div>
         <FormPage/>
       </div>
       <div>
         <ParentComponent/>
+      </div>
+      <div>
+        <FilterComponent/>
       </div>
     </div>
   );

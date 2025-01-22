@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function exampleRender() {
+function RenderingList() {
   // 1. State Management
   const [count, setCount] = useState(0); // Count for counter functionality
   const [name, setName] = useState('');  // State for the name input
@@ -86,4 +86,4 @@ function exampleRender() {
   );
 }
 
-export default exampleRender;
+export default RenderingList;
