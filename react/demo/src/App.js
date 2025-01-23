@@ -8,6 +8,7 @@ import RenderingList from './components/rendering_list.js';
 import FormPage from './components/forms';
 import ParentComponent from './components/parentComponent';
 import FilterComponent from './components/FilterComponent.js';
+import Tictac from './components/Tictac.js';
 
 function App() {
   const [selectedView, setSelectedView] = useState('');
@@ -29,6 +30,7 @@ function App() {
           alt='nature'
         />
       </section>
+
       <div>
         <span>Game</span>
         <input
@@ -55,22 +57,25 @@ function App() {
         </div>
       </div>
       <div>
-        <Statable/>
+        <Statable />
       </div>
       <div>
-        <Lifecycle/>
+        <Lifecycle />
       </div>
       <div>
-        <RenderingList/>
+        <RenderingList />
       </div>
       <div>
-        <FormPage/>
+        <FormPage />
       </div>
       <div>
-        <ParentComponent/>
+        <ParentComponent />
       </div>
       <div>
-        <FilterComponent/>
+        <FilterComponent />
+      </div>
+      <div>
+        <Tictac />
       </div>
     </div>
   );
