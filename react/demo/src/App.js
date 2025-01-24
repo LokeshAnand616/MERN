@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
+import {BrowserRouter as Router,Routes,Route,Link} from 'react-router-dom';
 import './App.css';
-import Game from './components/game';
-import Study from './components/study';
+
 import Statable from './components/statable';
 import Lifecycle from './components/lifeCycle';
 import RenderingList from './components/rendering_list.js';
@@ -9,16 +9,45 @@ import FormPage from './components/forms';
 import ParentComponent from './components/parentComponent';
 import FilterComponent from './components/FilterComponent.js';
 import Tictac from './components/Tictac.js';
+import UseIdForm from './components/useIdForm.js';
+import SwitchComp from './components/SwitchComp.js';
+import ContextRender from './components/ContextRender.js';
+import SuspenseReact from './components/SuspenseReact.js';
+
 
 function App() {
-  const [selectedView, setSelectedView] = useState('');
-
-  // Handle the radio button change
-  function handleChange(event) {
-    setSelectedView(event.target.value);
-  }
+  
 
   return (
+    <>
+    
+    <Router>
+      <Link to='/lifecycle'>Lifecycle</Link>
+      <Link to='/Switch'>Switch</Link>
+      <Link to='/Statable'>Statable</Link>
+      <Link to='/RenderingList'>RenderingList</Link>
+      <Link to='/Formpage'>Formpage</Link>
+      <Link to='Parentcomponent'>ParentComponent</Link>
+      <Link to='/Filtercomponent'>FilterComponent</Link>
+      <Link to='/Tictactoe'>Tictactoe</Link>
+      <Link to='/Useidform'>UseIdForm</Link>
+      <Link to='/Suspense'>Suspense</Link>
+      <Link to='/contextPage'>Page</Link>
+      <Routes>
+        <Route path='/lifecycle' element={<Lifecycle />}/>
+        <Route path='/Switch' element={<SwitchComp/>}/>
+        <Route path='/Statable' element={<Statable/>}/>
+        <Route path='/Renderinglist' element={<RenderingList/>}/>
+        <Route path='/Formpage' element={<FormPage/>}/>
+        <Route path='/Parentcomponent' element={<ParentComponent/>}/>
+        <Route path='/Filtercomponent' element={<FilterComponent/>}/>
+        <Route path='/Tictactoe' element={<Tictac/>}/>
+        <Route path='/Useidform' element={<UseIdForm/>}/>
+        <Route path='/Suspense' element={<SuspenseReact/>}/>
+        <Route path='/contextPage' element={<ContextRender/>}/>
+      </Routes>
+    </Router>
+    
     <div className="App">
       <header className="App-header">
         <p>This demo</p>
@@ -31,53 +60,11 @@ function App() {
         />
       </section>
 
-      <div>
-        <span>Game</span>
-        <input
-          type='radio'
-          name='view'
-          className='select'
-          value='game'
-          onChange={handleChange}
-        />
-        <span>Study</span>
-        <input
-          type='radio'
-          name='view'
-          className='select'
-          value='study'
-          onChange={handleChange}
-        />
-        <div>
-          {selectedView === 'game' ? (
-            <Game name="Super Mario" level="1" />
-          ) : selectedView === 'study' ? (
-            <Study subject="Math" difficulty="Easy" />
-          ) : null}
-        </div>
+      
       </div>
-      <div>
-        <Statable />
-      </div>
-      <div>
-        <Lifecycle />
-      </div>
-      <div>
-        <RenderingList />
-      </div>
-      <div>
-        <FormPage />
-      </div>
-      <div>
-        <ParentComponent />
-      </div>
-      <div>
-        <FilterComponent />
-      </div>
-      <div>
-        <Tictac />
-      </div>
-    </div>
+
+   
+    </>
   );
 }
 
