@@ -3,7 +3,7 @@ import React from "react";
 
 function RenderingList() {
   return (
-    <div>
+    <>
       <ul>
         {people.map((keys) => (
           <React.Fragment key={keys.id}>
@@ -13,7 +13,7 @@ function RenderingList() {
           </React.Fragment>
         ))}
       </ul>
-    </div>
+    </>
   );
 }
 export default RenderingList;

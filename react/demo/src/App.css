@@ -1,19 +1,13 @@
-.App {
-  text-align: center;
-}
 
-.App-header {
+
+ul{
+  margin: 0%;
   background-color: #282c34;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   font-size: calc(10px + 2vmin);
   color: white;
+  list-style-type: none;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-
