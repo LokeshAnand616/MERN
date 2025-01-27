@@ -1,4 +1,4 @@
-import React, { forwardRef, Suspense } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 
@@ -17,6 +17,9 @@ import Startpage from './components/Startpage.js';
 import ErrorBoundary from './components/ErrorDemo.js';
 import ReactFragmentExample from './components/ReactfragmentExample.js';
 import ForwardRefExample from './components/Forwardref.js';
+import Modalpage from './components/Modalpage.js';
+import Dashboard from './components/Dashboard.js';
+import RefComponent from './components/RefComponent.js';
 
 
 function App() {
@@ -72,6 +75,12 @@ function App() {
           <li>
             <Link to='/Forwardref'>Frowardref</Link>
           </li>
+          <li>
+            <Link to='/portal'>createPortal</Link>
+          </li>
+          <li>
+            <Link to='/useref'>Useref</Link>
+          </li>
         </ul>
         <Routes>
           <Route path='/Startpage' element={<Startpage />} />
@@ -93,6 +102,9 @@ function App() {
           }/>
           <Route path='/Reactfragment' element={<ReactFragmentExample/>}/>
           <Route path='/Forwardref' element={<ForwardRefExample/>}/>
+          <Route path='/portal' element={<Modalpage value={'welcome'}/>}/>
+          <Route path='/dashboard' element={<Dashboard/>}/>
+          <Route path='/useref' element={<RefComponent/>}/>
         </Routes>
       </Router>
     </>
