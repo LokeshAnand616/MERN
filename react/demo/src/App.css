@@ -1,13 +1,19 @@
 
 
-ul{
+#app-ul{
   margin: 0%;
-  background-color: #282c34;
   display: flex;
   flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   font-size: calc(10px + 2vmin);
-  color: white;
   list-style-type: none;
+  gap: 10px;
+  background-color: black;
 }
+#link{
+  text-decoration: none;
+  color: azure;
+}
+
