@@ -1,6 +1,5 @@
 import { Link, Route, Routes ,BrowserRouter as Router} from "react-router-dom";
-import {linkItems} from '../assets/LinkItems.js'
-import { routeItems } from "../assets/RouteItems.js";
+import {linkItems,routeItems} from '../assets/LinkItems.js'
 function Routing(){    
     return(
         <>
