@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-function AddTask({onClickAdd}){
+function AddTask({onAdd}){
     const [text,setText]=useState('');
     return(
         <>
@@ -11,7 +11,10 @@ function AddTask({onClickAdd}){
             ></input>
             <button onClick={()=>{
                 setText('');
-                onClickAdd(text);
+                onAdd({
+                    type:'add',
+                    payload:{name:text}
+                });
             }}>
                 add task
             </button>

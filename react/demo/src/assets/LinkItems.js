@@ -22,6 +22,8 @@ import MemoDemo from "../components/MemoDemo";
 import Reducer from "../components/Reducer";
 import ReactUseState from "../components/ReactUseState";
 import ReactUseEffect from "../components/ReactUseEffect";
+import ReactUseTransition from "../components/ReactUseTransition";
+import Counter from "../components/customHook";
 export const linkItems = [
     {to:'', lable:'Startpage'},
     {to:'/lifecycle',lable:'Lifecycle'},
@@ -44,7 +46,9 @@ export const linkItems = [
     {to:'/memodemo',lable:'UseMemo'},
     {to:'/reducer',lable:'Reducer'},
     {to:'/reactusestate',lable:'UseState'},
-    {to:'/reactuseeffect',lable:'UseEffect'}
+    {to:'/reactuseeffect',lable:'UseEffect'},
+    {to:'/reactusetransition',lable:'UseTransition'},
+    {to:'/customhook',lable:'CustomHook'}
 ];
 
 export const routeItems = [
@@ -77,5 +81,7 @@ export const routeItems = [
     {path:'/memodemo',element:<MemoDemo/>},
     {path:'/reducer',element:<Reducer/>},
     {path:'/reactusestate',element:<ReactUseState/>},
-    {path:'/reactuseeffect',element:<ReactUseEffect/>}
+    {path:'/reactuseeffect',element:<ReactUseEffect/>},
+    {path:'/reactusetransition',element:<ReactUseTransition/>},
+    {path:'/customhook',element:<Counter/>}
 ];
