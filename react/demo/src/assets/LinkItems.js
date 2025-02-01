@@ -24,6 +24,8 @@ import ReactUseState from "../components/ReactUseState";
 import ReactUseEffect from "../components/ReactUseEffect";
 import ReactUseTransition from "../components/ReactUseTransition";
 import Counter from "../components/customHook";
+import UseImperativeHandle from "../components/ImperativeHandle";
+import AxiosDemo from "../components/AxiosDemo";
 export const linkItems = [
     {to:'', lable:'Startpage'},
     {to:'/lifecycle',lable:'Lifecycle'},
@@ -48,7 +50,9 @@ export const linkItems = [
     {to:'/reactusestate',lable:'UseState'},
     {to:'/reactuseeffect',lable:'UseEffect'},
     {to:'/reactusetransition',lable:'UseTransition'},
-    {to:'/customhook',lable:'CustomHook'}
+    {to:'/customhook',lable:'CustomHook'},
+    {to:'/useimperativehandle',lable:'UseImperativeHandle'},
+    {to:'axiosdemo',lable:'AxiosDemo'}
 ];
 
 export const routeItems = [
@@ -83,5 +87,7 @@ export const routeItems = [
     {path:'/reactusestate',element:<ReactUseState/>},
     {path:'/reactuseeffect',element:<ReactUseEffect/>},
     {path:'/reactusetransition',element:<ReactUseTransition/>},
-    {path:'/customhook',element:<Counter/>}
+    {path:'/customhook',element:<Counter/>},
+    {path:'/useimperativehandle',element:<UseImperativeHandle/>},
+    {path:'axiosdemo',element:<AxiosDemo/>}
 ];

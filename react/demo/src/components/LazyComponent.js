@@ -1,11 +1,4 @@
-
-function LazyComponent(){
-
-    return(
-        <>
-        <h1>hello</h1>
-        </>
-    );
-}
-
-export default LazyComponent;
+export default function LazyComponent() {
+    return <h2>Hello from Lazy Component!</h2>;
+  }
+  
