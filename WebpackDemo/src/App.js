@@ -1,9 +1,13 @@
-import React from "react";
-function App(){
-    return(
-        <>
-        <h1>hello world</h1>
-        </>
-    );
-}
-export default App
+import React from 'react';
+import ImageCarousel from './components/ImageCarousel';
+
+const App = () => {
+  return (
+    <div>
+      <h1>React Webpack Image Carousel</h1>
+      <ImageCarousel />
+    </div>
+  );
+};
+
+export default App;
