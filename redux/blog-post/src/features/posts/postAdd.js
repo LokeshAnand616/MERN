@@ -1,26 +1,35 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addPost } from "./postsSlice";
 import { useState } from "react";
-import { selectAllUsers } from "../users/userSlice";  // Ensure correct file name
+import { selectAllUsers } from "../users/userSlice"; 
 
 function PostAdd() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [userId, setUserId] = useState("");
+  const [requestStatus, setRequestStatus] = useState("idle");
 
   const dispatch = useDispatch();
-  const users = useSelector(selectAllUsers) || [];  // Ensure users is always an array
+  const users = useSelector(selectAllUsers); 
 
-  console.log("Users from Redux:", users);
+  const disable = [title, content, userId].every(Boolean) && requestStatus === "idle";
 
   function handleSave(e) {
     e.preventDefault();
 
-    if (title && content && userId) {
-      dispatch(addPost(title, content, userId));  // Correct order
-      setTitle("");
-      setContent("");
-      setUserId("");  // Reset user selection
+    if (disable) {
+      try {
+        setRequestStatus("pending");
+        dispatch(addPost({ title, content, userId })).unwrap();
+
+        setTitle("");
+        setContent("");
+        setUserId("");
+      } catch (err) {
+        console.error("Failed to save post", err);
+      } finally {
+        setRequestStatus("idle");
+      }
     }
   }
 
@@ -49,12 +58,12 @@ function PostAdd() {
           <option value="">Select Author</option>
           {users.map((user) => (
             <option key={user.id} value={user.id}>
-              {user.user}  {/* Changed from user.name to user.user */}
+              {user.user}
             </option>
           ))}
         </select>
 
-        <button type="submit">Save</button>
+        <button disabled={!disable} type="submit">Save</button>
       </form>
     </>
   );
