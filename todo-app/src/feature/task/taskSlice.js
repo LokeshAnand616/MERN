@@ -1,40 +1,15 @@
-// import { createSlice, nanoid } from "@reduxjs/toolkit";
-// const initialState = [];
-// const taskSlice = createSlice({
-//   name: "taskSlice",
-//   initialState,
-//   reducers: {
-//     addTask: {
-//       reducer(state, action) {
-//         state.push(action.payload);
-//       },
-//       prepare(task, priority) {
-//         return {
-//           payload: {
-//             id: nanoid(),
-//             task,
-//             priority,
-//           },
-//         };
-//       },
-//     },
-//     deleteTask:{
-//         reducer(state,action){
-//             return state.filter(item => item.id !== action.payload.id)
-//         }
-//     }
-//   },
-// });
-// export const selectAllTask = (state) => state.tasks || [];
-// export default taskSlice.reducer;
-// export const {addTask, deleteTask} = taskSlice.actions;
-
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
-import { addTask, fetchTasks } from "../../core/api";
+import { fetchTasks, addTask, deleteTask, updateTask } from "../../api/CRUD";
+
+const priorityOrder = {
+  high: 1,
+  medium: 2,
+  low: 3,
+};
 
 const tasksAdapter = createEntityAdapter({
   selectId: (task) => task.id,
-  sortComparer: (a, b) => a.priority - b.priority,
+  sortComparer: (a, b) => priorityOrder[a.Priority] - priorityOrder[b.Priority],
 });
 
 const taskSlice = createSlice({
@@ -49,7 +24,8 @@ const taskSlice = createSlice({
       .addCase(fetchTasks.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(fetchTasks.fulfilled, (state) => {
+      .addCase(fetchTasks.fulfilled, (state, action) => {
+        console.log("Fetched Tasks:", action.payload);
         state.status = "succeeded";
         tasksAdapter.setAll(state, action.payload);
       })
@@ -57,12 +33,24 @@ const taskSlice = createSlice({
         state.status = "failed";
         state.error = action.error.message;
       })
-      .addCase(addTask.fulfilled, tasksAdapter.addOne);
+      .addCase(addTask.fulfilled, (state, action) => {
+        console.log("Added Task:", action.payload);
+        tasksAdapter.addOne(state, action.payload);
+      })
+      .addCase(deleteTask.fulfilled, (state, action) => {
+        tasksAdapter.removeOne(state, action.payload);
+      })
+      .addCase(updateTask.fulfilled, (state, action) => {
+        console.log("Updated Task:", action.payload);
+        tasksAdapter.updateOne(state, {
+          id: action.payload.id,
+          changes: action.payload,
+        });
+      });
   },
 });
 
-export const { selectAll: selectAllTasks, selectById: selectTaskById } = tasksAdapter.getSelectors(
-    (state) => state.tasks
-);
+export const { selectAll: selectAllTasks, selectById: selectTaskById } =
+  tasksAdapter.getSelectors((state) => state.tasks);
 
 export default taskSlice.reducer;
