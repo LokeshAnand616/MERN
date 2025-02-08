@@ -18,9 +18,9 @@ function TaskComponent() {
 
   return (
     <>
-      <Button props="Add Task" onHandleClick={() => setShowModal(true)} />  
-      <TaskModal show={showModal} handleClose={() => setShowModal(false)} />
       <TaskList />
+      <TaskModal show={showModal} handleClose={() => setShowModal(false)} />
+      <Button props="Add Task" onHandleClick={() => setShowModal(true)} />  
     </>
   );
 }

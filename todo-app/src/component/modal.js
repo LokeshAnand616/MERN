@@ -6,7 +6,7 @@ import CustomButton from "../component/button";
 import { addTask, updateTask } from "../api/CRUD";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import Modal from "bootstrap/js/dist/modal";
+import {Modal} from 'bootstrap'
 
 function TaskModal({ show, handleClose, editTask }) {
   const [task, setTask] = useState(editTask?.Task || "");
