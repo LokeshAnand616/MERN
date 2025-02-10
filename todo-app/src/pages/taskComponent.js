@@ -8,7 +8,7 @@ import { fetchTasks } from "../api/CRUD";
 function TaskComponent() {
   const taskStatus = useSelector((state) => state.tasks.status);
   const dispatch = useDispatch();
-  const [showModal, setShowModal] = useState(false); 
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     if (taskStatus === "idle") {
@@ -20,7 +20,7 @@ function TaskComponent() {
     <>
       <TaskList />
       <TaskModal show={showModal} handleClose={() => setShowModal(false)} />
-      <Button props="Add Task" onHandleClick={() => setShowModal(true)} />  
+      <Button props="Add Task" onHandleClick={() => setShowModal(true)} />
     </>
   );
 }

@@ -1,10 +1,10 @@
-import './App.css';
-import TaskComponent from './pages/taskComponent';
+import "./App.css";
+import TaskComponent from "./pages/taskComponent";
 
 function App() {
   return (
     <div className="App">
-      <TaskComponent/>
+      <TaskComponent />
     </div>
   );
 }

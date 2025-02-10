@@ -10,7 +10,7 @@ function TaskList() {
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
   const [editTask, setEditTask] = useState(null);
-  const [completedTasks, setCompletedTasks] = useState({}); 
+  const [completedTasks, setCompletedTasks] = useState({});
 
   const handleEdit = (task) => {
     setEditTask(task);
@@ -20,7 +20,7 @@ function TaskList() {
   const handleCheckboxChange = (taskId) => {
     setCompletedTasks((prev) => ({
       ...prev,
-      [taskId]: !prev[taskId], 
+      [taskId]: !prev[taskId],
     }));
   };
   console.log(completedTasks);

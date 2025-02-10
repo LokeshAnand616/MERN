@@ -6,7 +6,7 @@ import CustomButton from "../component/button";
 import { addTask, updateTask } from "../api/CRUD";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import {Modal} from 'bootstrap'
+import { Modal } from "bootstrap";
 
 function TaskModal({ show, handleClose, editTask }) {
   const [task, setTask] = useState(editTask?.Task || "");
@@ -46,7 +46,9 @@ function TaskModal({ show, handleClose, editTask }) {
 
   // Handle removing Bootstrap modal backdrop
   function removeBackdrop() {
-    document.querySelectorAll(".modal-backdrop").forEach((backdrop) => backdrop.remove());
+    document
+      .querySelectorAll(".modal-backdrop")
+      .forEach((backdrop) => backdrop.remove());
   }
 
   // Handle form input changes
@@ -89,18 +91,35 @@ function TaskModal({ show, handleClose, editTask }) {
       <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title">{editTask ? "Edit Task" : "Add Task"}</h5>
-            <button type="button" className="btn-close" onClick={closeModal}></button>
+            <h5 className="modal-title">
+              {editTask ? "Edit Task" : "Add Task"}
+            </h5>
+            <button
+              type="button"
+              className="btn-close"
+              onClick={closeModal}
+            ></button>
           </div>
 
           <div className="modal-body">
             <Input task={task} onHandleChange={handleChange} />
-            <Select props={priorityList} onChangeSelect={handleSelect} value={priority} />
+            <Select
+              props={priorityList}
+              onChangeSelect={handleSelect}
+              value={priority}
+            />
           </div>
 
           <div className="modal-footer">
-            <CustomButton props="Close" variant="secondary" onHandleClick={closeModal} />
-            <CustomButton props={editTask ? "Update" : "Add"} onHandleClick={handleSubmit} />
+            <CustomButton
+              props="Close"
+              variant="secondary"
+              onHandleClick={closeModal}
+            />
+            <CustomButton
+              props={editTask ? "Update" : "Add"}
+              onHandleClick={handleSubmit}
+            />
           </div>
         </div>
       </div>
