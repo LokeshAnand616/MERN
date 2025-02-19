@@ -1,5 +1,9 @@
-import { EventEmitter } from 'node:events';
-class MyEmitter extends EventEmitter {}
+import { EventEmitter } from "events";
+class MyEmitter extends EventEmitter {
+  constructor(){
+    super();
+  }
+}
 const myEmitter = new MyEmitter();
 myEmitter.on('event', function(a, b) {
   console.log(this);

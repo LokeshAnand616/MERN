@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<table id="userTable" border="1">
+  <tr>
+    <th>Name</th>
+    <th>Role</th>
+  </tr>
+</table>
+
+<script>
+  function addRow(name, role) {
+    let table = document.getElementById("userTable");
+
+    let row = document.createElement("tr");
+
+    let nameCell = document.createElement("td");
+    let roleCell = document.createElement("td");
+
+    nameCell.textContent = name; 
+    roleCell.textContent = role; 
+
+    row.appendChild(nameCell);
+    row.appendChild(roleCell);
+    table.appendChild(row);
+  }
+
+  addRow("Alice", "Developer");
+  addRow("Bob", "Manager");
+</script>
+
+</body>
+</html>
