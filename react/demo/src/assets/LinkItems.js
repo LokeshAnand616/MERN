@@ -26,6 +26,7 @@ import ReactUseTransition from "../components/ReactUseTransition";
 import Counter from "../components/customHook";
 import UseImperativeHandle from "../components/ImperativeHandle";
 import AxiosDemo from "../components/AxiosDemo";
+import DisplayImage from "../components/DisplayImage";
 export const linkItems = [
     {to:'', lable:'Startpage'},
     {to:'/lifecycle',lable:'Lifecycle'},
@@ -52,7 +53,8 @@ export const linkItems = [
     {to:'/reactusetransition',lable:'UseTransition'},
     {to:'/customhook',lable:'CustomHook'},
     {to:'/useimperativehandle',lable:'UseImperativeHandle'},
-    {to:'axiosdemo',lable:'AxiosDemo'}
+    {to:'axiosdemo',lable:'AxiosDemo'},
+    {to:'/displayimage', lable:'DisplayImage'}
 ];
 
 export const routeItems = [
@@ -89,5 +91,6 @@ export const routeItems = [
     {path:'/reactusetransition',element:<ReactUseTransition/>},
     {path:'/customhook',element:<Counter/>},
     {path:'/useimperativehandle',element:<UseImperativeHandle/>},
-    {path:'axiosdemo',element:<AxiosDemo/>}
+    {path:'axiosdemo',element:<AxiosDemo/>},
+    {path:'/displayimage', element:<DisplayImage/>}
 ];

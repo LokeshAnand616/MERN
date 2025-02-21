@@ -6,6 +6,10 @@ let users = [
   { id: 2, name: "Bob" },
 ];
 
+router.use((req, res, next) => {   
+  console.log('Time:', Date.now())
+  next()
+})
 router.get("/", (req, res) => {
   res.render("users", { users });
 });
