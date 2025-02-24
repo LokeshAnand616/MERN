@@ -2,7 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const router = express.Router()
 router.get("/readfile", (req, res, next) => {
-    fs.readFile("./file.txt", "utf8", (err, data) => {  //file extention is not specified gives error
+    fs.readFile("./file.txt", "utf8", (err, data) => { 
       if (err) {
         next(err);
       } else {

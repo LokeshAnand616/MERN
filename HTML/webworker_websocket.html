@@ -19,6 +19,7 @@
                     const numbers = event.data;
                     const sum = numbers.reduce((acc, num) => acc + num, 0);
                     postMessage(sum);
+                    console.log("worker thread")
                 }
             `;
 
