@@ -1,0 +1,326 @@
+1)What is javascript?
+	
+	Javascript is a scripting language used in both client and server side . Traditionally javascript used in client side where 
+	it is used to manipulate DOM, Handling user interaction, making asynchronous action and enhancing UI. In server side it is 
+	used to handle the backend database, authentication and others.
+	
+2)Running order of java script?
+
+	The javascript runs a block of code from top to bottom , so we have to be carefull while writting a block of code in js.
+	example code:
+		function updateName(){
+			console.log('lokesh');
+		}
+		
+		const button = document.getElementById("button");
+		button.addEventListener('click',updateName);
+		
+		here we have to declare the button using document.getElementById then only we can access the button. If we try to add 
+		listener first then java script will throw a error.
+		ERROR MESSAGE : "Uncaught ReferenceError: Cannot access 'button' before initialization"
+
+3)What is interpreted language?
+
+	An interpreted language means that the program is executed line by line (top to bottom) at runtime, without the need for prior 
+	compilation into machine code. Instead of being transformed into a separate executable file, the code remains in a human-readable 
+	form and is processed by an interpreter (such as the JavaScript engine in web browsers).In the case of JavaScript, the browser’s J
+	avaScript engine (e.g., V8 in Chrome, SpiderMonkey in Firefox) reads and executes the code directly. 
+	
+4)What is compiler language?
+
+	A compiled language is one where the source code is translated into machine code (binary executable) before execution. This 
+	transformation is done by a compiler, which processes the entire program at once and generates an executable file. Once compiled, 
+	the program runs directly on the computer’s hardware, making execution faster compared to interpreted languages.
+
+5)Just-In-Time compiler in java script?
+
+	Java script is a lightweight interpreter language where the code is at runtime . In technical standpoint java script uses 
+	Just-In-Time compilation where the javascript code is converted into binary format which is faster to executed. However 
+	javascript is considered to be a interpreted language because the code is converted into machine code at the run time, 
+	rather than ahead of time.
+	
+6)How javascript is dynamically typed language?
+
+	A dynamically typed means the variables data type declared at the runtime rather than explicitly declared at the starting.
+	example:
+		let a = 10;
+		a = "hello";
+		a=true;
+			here we are declaring different data types to the variable "a" which is decided at the runtime.
+		props: we dont need to explicitly declare a variable type.
+		cons: It is prone to errors.
+		
+7)Features of V8 engine?
+
+	-> V8 parses and tokenize the javascript code into abstract syntax tree.
+	-> V8 just in time compile the js code which makes it faster.
+	-> V8 automatically cleans up the unused objects (Automatic Garbage Collection).
+
+8)What happens if we embed javascript inside head, inside the body, outside the body, outside the html tag?
+
+	->If we embed the javascript in the head then the javascript cant access all the DOM elements because the html is not 
+	rendered fully at the time. So while using script in head we can use "defer" inside the script tag.
+		example: <script src="script.js" defer></script>
+	here the defer make the javascript to load parallel but it will be executed once the html is fully render so that the js 
+	can access all the DOM elements.
+	->If we embed inside the body which is the best practise where the DOM elements will be rendered before executing the Javascript.
+	->If we place the javascript code outside the body or html in some browser still runs but its not recommended.
+
+9)What is variable?
+
+	Variables are the container to store a value. It allows you to store and manipulate the data in the program.
+
+10)Declare a variable in var?
+	In early JavaScript versions, var was the only way to declare variables. However, it has certain limitations and is considered 
+	error-prone due to issues like hoisting and function scoping, making it less ideal for modern development.
+
+11)Hoisting in var?
+
+	Hoisting means the variable declaration are moved to the top of their scope before executing. However only declaration is
+	hoisted not initialization so that we get the value as undefined.
+		example:
+			console.log(a);
+			var a = 10;
+
+12)Function scope in var?
+
+	Var is function scoped means it is only restricted within function but it is not confined with in a block [{}-block]
+	example:
+		function name (){
+			var name = 'lokesh'
+			if(name){
+				var name = 'kannan'
+			}
+			console.log(name);
+		}
+
+13)How var variable attached to window?
+
+	If a variable is declared with var in the global scope in will be attached to the window object in the browser and it can be
+	accessed using window.variableName. If the variable is declared inside a function using var it wont attached to the window.
+
+14)Explain let and const?
+
+	Let and Const are block scoped so it can be accessed only inside the block in which have been declared. The variables declared
+	using let can be reassigned but the value declared using const cant be redeclared. Both let and const cant be hoisted and it 
+	wont be attached to the window object.
+
+15)Types of data in Javascript?
+
+	There are two types of data types.
+		->Primitive data type.
+		->Non primitive data type (Reference data type).
+	Primitive data type.
+		Primitive datatype are immutable and stored by value (stored directly in memory).
+			->Number (Represent numeric value including integers and floats)
+			->BigInt (Handle large integer beyond Number.MAX_SAFE_INTEGER)
+			->String (Represents text, enclosed in quotes ("", '', or ` `))
+			->Boolean (Represents TRUE or FALSE)
+			->undefined (A variable that is declared but not assigned a value)
+			->Null (Represents an intentionally empty value)
+			->Symbol (Unique and immutable value, often used as object keys)
+	Non-primitive data type or Reference data type.
+		Non primitive datatypes are mutable and stored by reference means it stores memory address instead of values.
+			->Object (collection of key-value pairs) - Associative array
+			->Array (Ordered list of values (indexed))
+			->Function (A callable objects)
+			->Date (Represent data and time)
+			->RegExp (Represents regular expressions)
+
+16)Define array?
+
+	Array is a single object that has multiple values enclosed in square bracket and seperated by commas. Once the value is defined 
+	we can access the value using the square bracket a[0], a[1], which will returns the value at the particular index. As we know
+	Javascript arrays are '0' index which means it starts from '0'.
+
+17)Define Javascript objects?
+
+	Objects are the structure of code that models the real life object. For example you can have object for a human and have
+	details of him inside. In other words objects are the collection of key value pairs where key are strings and value can be
+	in any data type.
+
+18)Numbers in javascript?
+
+	Number in javascript are stored in 64bit(8 byte) value in IEEE754 standards. This means every number is broken into three 
+	parts.It is said to be as double precession floating point number.
+		-> sign bit(1) - which determines whether the number is positive or negative.
+		-> Exponent(11) - which determines the range of the number.
+		-> Mantissa(52) - This stores the actual number in precession means in binary format 
+
+19)Maximum and minimum in Numbers?
+
+	Largest finite number can be get using Number.MAX_VALUE and minimum number using Number.MIN_VALUE and anything bigger than
+	MAX value is infinite.
+
+	MAX_SAFE_INTEGER and MAX_SAFE_INTEGER are the range upto where the calculations are reliable more than that will not be 
+	accurate.
+
+20)What is Number Coercion?
+
+	When the javascript expects a number it automatically convert other datatypes into numbers. This is called number Coercion.
+	Different values when they change into number:
+		-> number remains number
+		-> undefined becomes NaN(not a number)
+		-> null becomes 0(zero)
+		-> string looks like a number then it convert it into number or else it will become NaN
+		-> Boolean true or flase become 1 or 0
+		-> BigInt and Symbols throws error it cant be converted into number automatically.
+
+21)What happens in this case console.log("5"+2) and console.log("5"-2)?
+
+	In the above the first case the number will be automatically converted into string because the + operator prefers string as a 
+	input and concatinate the 52 as a string . In the second case where the - sign will only work with number so the string will be 
+	converted into number and subracted the two numbers.
+	so, in javascript and convert a string into number or number into string based on the operator used.
+
+22)What is Number.Epsilon?
+
+	Epsilon is the smallest possible difference between two numbers in javascript. When two float are added or subtracted there 
+	will be a smallest difference between them which will not be equal. So in this case we can use Epsilon as the safe margin and
+	if the  difference is less than the epsilon then the two numbers are same.
+
+	example:
+		console.log (0.1+0.2 === 0.3);
+		let a = 0.1;
+		let b = 0.2;
+		if((a+b - 0.3)< Number.EPSILON){
+			console.log(true)
+		}
+
+23)What is Number.MAX_SAFE_INTEGER?
+
+	The MAX_SAFE_INTEGER is used to determine the maximum safer number value which can be used to operation and comparision after 
+	this value
+	there can be some errors in the value due to double precession floating point number.
+
+24)What is Number.MAX_VALUE?
+
+	The MAX_VALUE represents the maximum number value in the javascript. The value larger than MAX_VALUE is infinite. This is a
+	static property of the number.
+
+25)What is Number.MIN_SAFE_INTEGER?
+
+	The MAX_SAFE_INTEGER is used to determine the minimum safer number value which can be used to operation and comparision after 
+	this value
+	there can be some errors in the value due to double precession floating point number.
+
+26)What is Number.MIN_VALUE?
+
+	The MAX_VALUE represents the minimum positive number value in the javascript. 
+
+27)What is Number.NaN?
+
+	NaN stands for Not a number and is a special value in javascript that represents the invalid numerical computation .
+
+28)Properties of NaN?
+
+	-> Global property - The NaN will be added to Window and can be accessed by window.NaN
+	-> Non-writable - We cant change the value of NaN
+	-> Non configurable - It cant be deleted or modified.
+	-> Self unequal - If we equal NaN if will shows false.
+
+29)ParseInt() vs Number()?
+
+	ParseInt() which converts string into number, Ignore non-numeric characters as numbers. can handle radix base(decimal,octa 
+	and hex)
+	Usecases:
+	✅ Best for extracting whole numbers from strings.
+	✅ Useful for working with different number bases.
+	❌ Not reliable for decimal numbers.
+
+	Number() which converts string, boolean and other datatypes into number. It will keep decimal places and ignore the non
+	numerical value after number.
+	usecase:
+	✅ Converts entire value into a proper number.
+	✅ Preserves decimal places.
+	❌ Fails if there are extra characters in the string.
+
+30)How to declare a string using single quotes, double quotes and back ticks?
+	
+	we can use single quotes, double quotes and back ticks to initialize a string . If we declare a string using back ticks 
+	it is known as template literals. Using template literals we can embed javascript inside the template literals . 
+		example: `hello ${name}`
+
+31)What is void operator?
+
+	The void in javascript evaluates an expression and always returns undefined. It is primarily used in places where we explicitly
+	need to return undefined.
+
+32)Uses cases of void operator?
+
+	-> If we need to explicitly return undifined in an expression	
+		example:
+			let result = void 1;
+			console.log(result);
+	-> Using void as a safe alternative for undifined.Before es5 there is no reserved keyword called undefined at that time 
+	programmers used void(0) as safe alternative
+	-> Preventing unwanted retrun in a arrow function when {} is not used.
+
+33)Can we create a string as objects?
+
+	Yes we can create a string as objects using " new string("hello") ". The string created using this will be treated as object which will
+	be slow and stored as an object. 
+	Even though if we create a sting as an primitive while using methods it act as an objects.
+
+34)What is string interpolation in js?
+
+	String interpolation means allowing to concat a variable inside a string instead of manually concat the string and variable this
+	provides a more readable and consise way.
+		example: let a = 10
+				consosle.log(`My number is ${a}`);
+
+35)Finding and accessing Characters in string?
+
+	-> charAt(index) - 	which retrives the string at the specific index.
+						If we specify negative index or index out of the string index it will retrun empty string
+
+	-> charCodeAt(index) - which retrives the UTF-16 code of the string at the particular index.
+
+	-> at(index) - Returns character at the specific index.
+				   we can give negative value it will return the string value from backwards
+				   If we try to access the value out of the string index it will give undefine value.
+
+	-> slice(start index,end index) - Extract the characters between the start and end indicies.
+		while giving the end as index it will take upto the before index of the specified index . If the end index is 4 then it
+		will take only upto 3.
+									If the end is not specified it will give the complete length.
+
+36)Searching in strings?
+
+	->indexOf(string ,index(optional)) - which return the index of the specified character in the string.
+										This is case sensitive search and only returns the first occurence of the character.
+	
+	->lastIndexOf(string, index(optional)) - Which retruns the index pf specified character from last.
+											This is also a case sensitive search only retruns the last occurence of the character
+
+	->Includes(string, index(optional)) - This method used to have a case sensitive search to check whether the given value is exists
+	 									inside the string. If exits it returns true else false.
+	
+	->startsWith(string, start index) - This method used to search whether the given string is starts with the specified string.
+										If we specified the start index it will search from the start index
+	
+	->endsWith(string , length) - This method used to check whether the string is ends with particular substring.
+								If we specify the length it will search upto the value.
+
+37)Lexical vs closure scope?
+
+	 Lexical scope defines the accessibility and visibility of variables based on their location in the code's nested functions. 
+	 Closures are functions that have access to variables in their outer function scope, even after the outer function has returned. 
+	 Closures are created every time a function is defined, and they're used to create private variables and methods.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+	
+
