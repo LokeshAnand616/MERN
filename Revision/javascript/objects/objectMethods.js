@@ -38,3 +38,5 @@ console.log(objProtype.__proto__)
 //object entries
 const objArray = Object.entries(obj);
 console.log(Object.fromEntries(objArray));
+console.log(Object.is(obj))
+
