@@ -13,6 +13,9 @@ import UseStateScenario from './components/useStateScenario';
 import UseEffectScenario from './components/UseEffectSenario';
 import Task from './components/Task';
 import UseMemoScenario from './components/UseMemoScenario';
+import ContextChild from './components/ContextChild';
+import { lazy, Suspense } from 'react';
+const LazyTransition = lazy(()=>import("./components/Transition"));
 
 function App() {
   return (
@@ -31,6 +34,10 @@ function App() {
       <UseEffectScenario/>
       <Task/>
       <UseMemoScenario/>
+      <ContextChild/>
+      <Suspense fallback={<h1>loading</h1>}>
+        <LazyTransition/>
+      </Suspense>
     </div>
   );
 }
