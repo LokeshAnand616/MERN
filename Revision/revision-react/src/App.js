@@ -15,6 +15,7 @@ import Task from './components/Task';
 import UseMemoScenario from './components/UseMemoScenario';
 import ContextChild from './components/ContextChild';
 import { lazy, Suspense } from 'react';
+import ReduxInc from './components/ReduxInc';
 const LazyTransition = lazy(()=>import("./components/Transition"));
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
       <Suspense fallback={<h1>loading</h1>}>
         <LazyTransition/>
       </Suspense>
+      <ReduxInc/>
     </div>
   );
 }

@@ -16,8 +16,17 @@ const library = [
   },
 ];
 
-console.log(library[0].author);
-
 const res = library
-  .filter((book) => book.readingStatus === true?book.author:"")
+  .filter((curr) => curr.readingStatus == true)
+  .map((curr) => curr.author);
+
+const persons = [
+  { id: 1, lastName: "bye", firstName: "hi" },
+  { id: 2, lastName: "bye", firstName: "hey" },
+];
+
+const secRes = persons.map((curr)=>curr.firstName+curr.lastName)
+// expected : [ 'hibye', 'heybye' ]
+
 console.log(res);
+console.log(secRes)
