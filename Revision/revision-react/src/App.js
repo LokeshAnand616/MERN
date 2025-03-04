@@ -25,6 +25,7 @@ import Profiler from './components/Profiler';
 import ModalParent from './components/ModalParent';
 import ForwardComp from './components/ForwardComp';
 import CustomHook from './components/CustomHook';
+import ExpressFetch from './components/ExpressFetch';
 
 // Lazy Loading
 const LazyComponent = lazy(() => import("./components/LazyLoading"));
@@ -60,6 +61,7 @@ function App() {
             <li><Link to="/custom-hook">CustomHook</Link></li>
             <li><Link to="/lazy">Lazy Loaded Component</Link></li>
             <li><Link to="/buggy">Buggy Component (Error Boundary)</Link></li>
+            <li><Link to="/expressfetch">Express</Link></li>
           </ul>
         </nav>
 
@@ -100,6 +102,7 @@ function App() {
               <BuggyComponent />
             </ErrorBoundary>
           }/>
+          <Route path='/expressfetch' element={<ExpressFetch/>}/>
         </Routes>
       </div>
     </Router>
