@@ -1,0 +1,17 @@
+[
+  {
+    "collection": "Nature",
+    "id": "nature",
+    "images": [
+      { "id": "1", "name": "sunset_beach", "url": "https://images.pexels.com/photos/189349/pexels-photo-189349.jpeg" },
+      { "id": "2", "name": "forest_path", "url": "https://images.pexels.com/photos/4827/nature-forest-trees-fog.jpeg" }
+    ]
+  },
+  {
+    "collection": "Cityscapes",
+    "id": "city",
+    "images": [
+      { "id": "3", "name": "city_nightscape", "url": "https://images.pexels.com/photos/799117/pexels-photo-799117.jpeg" }
+    ]
+  }
+]
