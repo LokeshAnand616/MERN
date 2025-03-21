@@ -9,7 +9,7 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"], weight: ["400", "700"] });
 
 // Dynamic Import for Heavy Component
-const HeavyComponent = dynamic(() => import("../app/components/HeavyComponent"), {
+const HeavyComponent = dynamic(() => import("../components/HeavyComponent"), {
     ssr: false, // Load only on client-side
     loading: () => <p>Loading...</p>,
 });
